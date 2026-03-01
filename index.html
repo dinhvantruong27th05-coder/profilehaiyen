@@ -101,8 +101,8 @@ html,body{
       <div class="badges">
         <span class="badge">Việt Nam </span>
         <span class="badge">☎ 0877177483</span>
-        <span class="badge">✉ ..............</span>
-      </div>
+        <span class="badge">✉tiemnhabong1101@gmail.com</span>
+      </div> 
       <p class="bio">Chuyên cung cấp tài khoản prenium giá rẻ    💕</p>
       <div class="actions">
  <a class="tile" href="https://www.facebook.com/profile.php?id=61587533871213" target="_blank" rel="noopener">📘 <strong>Liên Hệ </strong></a>
@@ -118,10 +118,11 @@ html,body{
       <div class="grid">
       </div>
        <!-- Liên kết & mạng xã hội -->
-    <section class="panel" aria-label="Liên kết & mạng xã hội">
+    <section class="panel" aria-label="Bảng Giá">
       <div class="section">Tài Nguyên </div>
-       <a class="tile" href="https://www.facebook.com/profile.php?id=61587533871213" target="_blank" rel="noopener">📘 <strong>Gr Mua Bán TK </strong></a>
-       <a class="tile" href="https://zalo.me/g/lwsasj052" target="_blank" rel="noopener">📘 <strong>Nhóm săn sale app giá rẻ </strong></a>
+       <a class="tile" href="https://ibb.co/Y4xZqBrV" target="_blank" rel="noopener">📘 <strong>MEITU VIP+ </strong></a>
+       <a class="tile" href="https://ibb.co/k2qfFX9h" target="_blank" rel="noopener">📘 <strong>WINK VIP </strong></a>
+       <a class="tile" href="https://ibb.co/Gvrkv7N2" target="_blank" rel="noopener">📘 <strong>XINGTU SVIP </strong></a>
       <div class="grid">
       </div>
       <div class="section">Thông tin  </div>
@@ -152,7 +153,7 @@ const toast=document.getElementById('toast');
 function showToast(text){ toast.textContent=text; toast.style.display='block'; clearTimeout(showToast.t); showToast.t=setTimeout(()=>toast.style.display='none',1500); }
 function safeCopy(t){ if(navigator.clipboard?.writeText){navigator.clipboard.writeText(t).then(()=>showToast('Đã copy!'));} else { const ta=document.createElement('textarea'); ta.value=t; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); showToast('Đã copy!'); }}
 document.getElementById('copyMail')?.addEventListener('click',(e)=>{e.preventDefault(); safeCopy('0819159899')});
-document.getElementById('copyPhone')?.addEventListener('click',(e)=>{e.preventDefault(); safeCopy('dinhvantruong27th05@gmail.com')});
+document.getElementById('copyPhone')?.addEventListener('click',(e)=>{e.preventDefault(); safeCopy('tiemnhabong1101@gmail.com')});
 
 // Avatar click hearts
 const avatar=document.getElementById('avatar');
