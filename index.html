@@ -153,17 +153,6 @@ const btn=document.getElementById('toggleMusicBtn');
 (async()=>{try{await audio.play();}catch{btn.textContent='🔈 Bật nhạc';}})();
 btn.addEventListener('click',async()=>{ if(audio.paused){await audio.play(); btn.textContent='🔊 Tắt nhạc';} else { audio.pause(); btn.textContent='🔈 Bật nhạc'; }});
 
-    <audio id="backgroundAudio" loop preload="auto" style="display:none">
-  <source src="https://files.catbox.moe/ztfmk5.mp3" type="audio/mpeg" />
-</audio>
-
-  <script>
-// Music toggle
-const audio=document.getElementById('backgroundAudio');
-const btn=document.getElementById('toggleMusicBtn');
-(async()=>{try{await audio.play();}catch{btn.textContent='🔈 Bật nhạc';}})();
-btn.addEventListener('click',async()=>{ if(audio.paused){await audio.play(); btn.textContent='🔊 Tắt nhạc';} else { audio.pause(); btn.textContent='🔈 Bật nhạc'; }});
-
 // Toast + copy
 const toast=document.getElementById('toast');
 function showToast(text){ toast.textContent=text; toast.style.display='block'; clearTimeout(showToast.t); showToast.t=setTimeout(()=>toast.style.display='none',1500); }
