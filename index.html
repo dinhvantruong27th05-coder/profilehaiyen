@@ -107,7 +107,6 @@ html,body{
       <div class="actions">
  <a class="tile" href="https://www.facebook.com/profile.php?id=61587533871213" target="_blank" rel="noopener">📘 <strong>Liên Hệ 1 </strong></a>
         <a class="tile" href="http://zalo.me/0819159899" target="_blank" rel="noopener">📘 <strong>Liên Hệ 2 </strong></a>
-     </div>
         <button class="btn" id="toggleMusicBtn" aria-pressed="true">🔊 Tắt nhạc</button>
       </div>
     </section>
@@ -166,7 +165,7 @@ document.getElementById('copyPhone')?.addEventListener('click',(e)=>{e.preventDe
 const avatar=document.getElementById('avatar');
 avatar.addEventListener('click',(e)=>{for(let i=0;i<7;i++) spawnHeart(e.offsetX??48, e.offsetY??48);});
 function spawnHeart(x,y){
-  const el=document.createElement('div'); el.textContent='🥵'; el.style.position='absolute'; el.style.left=x+'px'; el.style.top=y+'px'; el.style.pointerEvents='none';
+  const el=document.createElement('div'); el.textContent='💗'; el.style.position='absolute'; el.style.left=x+'px'; el.style.top=y+'px'; el.style.pointerEvents='none';
   const fs=14+Math.random()*12; el.style.fontSize=fs+'px'; el.style.opacity=1;
   const dx=(Math.random()-.5)*60, dy=-(30+Math.random()*60); const rot=(Math.random()-.5)*60;
   avatar.appendChild(el); const t0=performance.now();
