@@ -94,7 +94,7 @@ html,body{
               </svg>
             </span>
           </h1>
-          <div class="sub">Coder • Reverse  • 5xSec</div>
+          <div class="sub">Coder • Reverse  • 10xSec</div>
         </div>
       </div>
       <!-- Badges tách riêng, email cùng màu fg -->
@@ -106,8 +106,8 @@ html,body{
       <p class="bio">Chuyên cung cấp tài khoản prenium giá rẻ    💕</p>
       <div class="actions">
  <a class="tile" href="https://www.facebook.com/profile.php?id=61587533871213" target="_blank" rel="noopener">📘 <strong>Liên Hệ 1 </strong></a>
+        </div>
         <a class="tile" href="http://zalo.me/0819159899" target="_blank" rel="noopener">📘 <strong>Liên Hệ 2 </strong></a>
-        <button class="btn" id="toggleMusicBtn" aria-pressed="true">🔊 Tắt nhạc</button>
         <button class="btn" id="toggleMusicBtn" aria-pressed="true">🔊 Tắt nhạc</button>
       </div>
     </section>
@@ -154,16 +154,6 @@ const btn=document.getElementById('toggleMusicBtn');
 (async()=>{try{await audio.play();}catch{btn.textContent='🔈 Bật nhạc';}})();
 btn.addEventListener('click',async()=>{ if(audio.paused){await audio.play(); btn.textContent='🔊 Tắt nhạc';} else { audio.pause(); btn.textContent='🔈 Bật nhạc'; }});
     
-    <audio id="backgroundAudio" loop preload="auto" style="display:none">
-  <source src="https://files.catbox.moe/ztfmk5.mp3" type="audio/mpeg" />
-</audio>
-  
-  <script>
-// Music toggle
-const audio=document.getElementById('backgroundAudio');
-const btn=document.getElementById('toggleMusicBtn');
-(async()=>{try{await audio.play();}catch{btn.textContent='🔈 Bật nhạc';}})();
-btn.addEventListener('click',async()=>{ if(audio.paused){await audio.play(); btn.textContent='🔊 Tắt nhạc';} else { audio.pause(); btn.textContent='🔈 Bật nhạc'; }});
 
 // Toast + copy
 const toast=document.getElementById('toast');
