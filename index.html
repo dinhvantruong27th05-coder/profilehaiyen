@@ -1,191 +1,1014 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>  Tiệm Nhà Bông </title>
-<meta name="theme-color" content="#000000" />
-<meta name="description" content="LinkBio Sản Phẩm" />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='50' font-size='52'%3E%F0%9F%9A%80%3C/text%3E%3C/svg%3E" />
-<style>
-:root{
-  --bg:#FFB5C5; --fg:#e6ffff; --cyan:#00ffff; --vio:#8a2be2;
-  --glow:0 0 25px rgba(0,255,255,.45),0 0 60px rgba(138,43,226,.25);
-  --card-bg:rgba(2,8,20,.48);
-}
-html,body{
-  height:100%; margin:0; background:var(--bg); color:var(--fg);
-  font-family:system-ui,Segoe UI,Inter,Roboto,Arial,sans-serif;
-  overflow: auto; /* cho phép cuộn trang */
-}
-.wrap{position:relative; z-index:2; min-height:100vh; display:flex; align-items:center; justify-content:center; padding:28px}
-.shell{width:100%; max-width:1100px; display:grid; grid-template-columns:1.1fr .9fr; gap:26px}
-@media (max-width:900px){ .shell{grid-template-columns:1fr; gap:20px} }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Văn Trường - Dịch Vụ MXH (Giao diện Nữ Phái)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.panel{padding:22px; border-radius:18px; background:var(--card-bg); backdrop-filter:saturate(150%) blur(12px); box-shadow:var(--glow); transition:.3s}
-.panel:hover{box-shadow:0 0 50px var(--cyan),0 0 100px var(--vio); transform:scale(1.02)}
+        :root {
+            --primary-color: #ff69b4; /* Màu hồng chủ đạo */
+            --secondary-color: #f8f0f0; /* Màu nền phụ nhẹ nhàng */
+            --text-color: #333333; /* Màu chữ tối */
+            --gray-color: #666666; /* Màu xám cho văn bản phụ */
+            --light-bg: #fff0f5; /* Màu nền chính (blush pink) */
+            --card-bg: #ffffff; /* Màu nền thẻ */
+        }
 
-.head{display:flex; align-items:center; gap:16px}
-.avatar{position:relative; width:96px; height:96px; border-radius:50%; overflow:hidden; border:2px solid var(--cyan); box-shadow:var(--glow); cursor:pointer; transition:.3s}
-.avatar::after{content:""; position:absolute; inset:-6px; border-radius:50%;
-  background:conic-gradient(from 0deg, rgba(0,255,255,.25), rgba(138,43,226,.25), rgba(0,255,255,.25));
-  filter:blur(14px); z-index:-1; animation:halo 6s linear infinite}
-@keyframes halo{to{transform:rotate(360deg)}}
-.avatar:hover{box-shadow:0 0 60px var(--cyan),0 0 100px var(--vio); transform:scale(1.08)}
-.avatar img{width:100%; height:100%; object-fit:cover}
-.online{position:absolute; right:6px; bottom:6px; width:12px; height:12px; border-radius:50%; background:linear-gradient(135deg,var(--cyan),var(--vio)); box-shadow:0 0 10px var(--cyan)}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-.title h1{margin:0; font-size:1.6rem; letter-spacing:.3px; color:var(--cyan); text-shadow:0 0 14px currentColor; display:flex; align-items:center; gap:8px}
-.badge-verify{display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px}
-.badge-verify svg{display:block}
+        /* ===== HEADER ===== */
+        header {
+            background: linear-gradient(135deg, var(--card-bg) 0%, var(--light-bg) 100%);
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 105, 180, 0.2); /* Viền hồng nhạt */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
 
-.sub{color:#bfefff; opacity:.9}
-.badges{display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 6px}
-.badge{font-size:.9rem; padding:6px 10px; border-radius:10px; background:rgba(0,0,0,.25); border:1px solid rgba(0,255,255,.35); color:var(--fg)} /* Email & phone cùng màu */
-.badge a{color:inherit; text-decoration:none} /* Email không xanh */
-.bio{margin:12px 0 16px; color:#dfffff}
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: 2px;
+        }
 
-.actions{display:grid; grid-template-columns:repeat(2,1fr); gap:10px}
-.btn{padding:12px 10px; border-radius:12px; border:1.6px solid var(--cyan); background:transparent; color:var(--cyan); font-weight:700; cursor:pointer; transition:.25s transform,color,box-shadow; text-align:center}
-.btn:hover{transform:translateY(-2px); background:radial-gradient(120% 120% at 50% 10%, rgba(0,255,255,.22), rgba(138,43,226,.22)); box-shadow:var(--glow); color:#001217}
+        nav {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
 
-.section{margin:4px 0 12px; color:var(--cyan); font-weight:800; text-shadow:0 0 10px var(--cyan); position:relative}
-.section::after{content:""; position:absolute; left:0; bottom:-6px; width:72px; height:3px; background:linear-gradient(90deg,var(--cyan),var(--vio)); border-radius:2px}
-.grid{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
-@media (max-width:900px){ .grid{grid-template-columns:repeat(2,1fr)} }
-@media (max-width:520px){ .grid{grid-template-columns:1fr} }
-.tile{display:flex; justify-content:center; align-items:center; gap:8px; padding:14px 12px; border-radius:14px; text-decoration:none; color:var(--fg); background:rgba(0,0,0,.35); border:1px solid rgba(0,255,255,.25); transition:.25s all}
-.tile:hover{background:radial-gradient(circle at center, rgba(0,255,255,.25), rgba(138,43,226,.2)); box-shadow:var(--glow); transform:scale(1.05)}
-.footer{text-align:center; margin-top:18px; color:#bfefff}
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
 
-.toast{position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:linear-gradient(135deg,var(--cyan),var(--vio)); color:#001217; padding:10px 16px; border-radius:12px; font-weight:800; display:none; z-index:5; box-shadow:var(--glow)}
+        nav a:hover {
+            color: var(--primary-color);
+        }
 
-#galaxy{position:fixed; top:0; left:0; width:100%; height:100%; z-index:0}
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s;
+        }
 
-/* Keyboard focus */
-:focus-visible{outline:2px dashed var(--cyan); outline-offset:4px} 
+        nav a:hover::after {
+            width: 100%;
+        }
 
-/* Respect reduced motion */
-@media (prefers-reduced-motion:reduce){
-  .panel:hover,.avatar:hover{transform:none}
-  .avatar::after{animation:none}
-}
-</style>
+        .nav-btn {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 10px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            border: none;
+            transition: all 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: #ff85c1; /* Hồng đậm hơn */
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 100px 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            color: var(--primary-color);
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+   
+        .hero-content p {
+            font-size: 16px;
+            color: var(--gray-color);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ff69b4 0%, #ff85c1 100%);
+            color: #fff;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 105, 180, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            padding: 15px 40px;
+            border: 2px solid var(--primary-color);
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        .hero-image {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-box {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 105, 180, 0.1) 0%, rgba(255, 105, 180, 0.05) 100%);
+            border: 2px solid rgba(255, 105, 180, 0.3);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: var(--primary-color);
+        }
+
+        /* ===== SERVICES SECTION ===== */
+        .services {
+            padding: 100px 50px;
+            background: linear-gradient(180deg, transparent 0%, rgba(255, 105, 180, 0.05) 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .section-title p {
+            color: var(--gray-color);
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, var(--card-bg) 0%, var(--light-bg) 100%);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 105, 180, 0.2);
+            transition: all 0.3s;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+        }
+
+        .service-card:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 20px 40px rgba(255, 105, 180, 0.2);
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--primary-color); /* Icon color */
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .service-card p {
+            color: var(--gray-color);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* ===== PRICING SECTION ===== */
+        .pricing {
+            padding: 100px 50px;
+            background: linear-gradient(180deg, rgba(255, 105, 180, 0.05) 0%, transparent 100%);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .pricing-table {
+            width: 100%;
+            margin-top: 50px;
+        }
+
+        .pricing-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 105, 180, 0.1);
+            align-items: center;
+            transition: all 0.3s;
+        }
+
+        .pricing-row:hover {
+            background: rgba(255, 105, 180, 0.05);
+            padding-left: 30px;
+        }
+
+        .pricing-service {
+            color: var(--text-color);
+            font-size: 16px;
+        }
+
+        .pricing-price {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 18px;
+            text-align: right;
+        }
+
+        .pricing-price-pink {
+            color: #ff69b4; /* Make sure this is explicitly pink if needed */
+        }
+
+
+        /* ===== PACKAGES SECTION ===== */
+        .packages {
+            padding: 100px 50px;
+            background: linear-gradient(180deg, transparent 0%, rgba(255, 105, 180, 0.05) 100%);
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+
+        .package-card {
+            background: linear-gradient(135deg, var(--card-bg) 0%, var(--light-bg) 100%);
+            padding: 40px;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 105, 180, 0.2);
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+        }
+
+        .package-card.featured {
+            border-color: var(--primary-color);
+            box-shadow: 0 20px 50px rgba(255, 105, 180, 0.3);
+            transform: scale(1.05);
+        }
+
+        .package-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #ff69b4 0%, #ff85c1 100%);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 12px;
+        }
+
+        .package-name {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--text-color);
+            margin-top: 10px;
+        }
+
+        .package-price {
+            font-size: 36px;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .package-features {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .package-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 105, 180, 0.1);
+            color: var(--gray-color);
+            font-size: 14px;
+        }
+
+        .package-features li:before {
+            content: '✓ ';
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-right: 10px;
+        }
+
+        .package-btn {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+        }
+
+        .package-btn:hover {
+            background: #ff85c1;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+        }
+
+        /* ===== FEATURES SECTION ===== */
+        .features {
+            padding: 100px 50px;
+            background: linear-gradient(180deg, rgba(255, 105, 180, 0.05) 0%, transparent 100%);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 30px;
+            background: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            border: 1px solid rgba(255, 105, 180, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .feature-item h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .feature-item p {
+            color: var(--gray-color);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: linear-gradient(135deg, var(--light-bg) 0%, #ffeef2 100%); /* Nền footer nhẹ nhàng */
+            padding: 50px;
+            border-top: 1px solid rgba(255, 105, 180, 0.2);
+            text-align: center;
+            color: var(--gray-color);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            color: var(--primary-color); /* Tiêu đề footer */
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .footer-section p {
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--gray-color);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 105, 180, 0.1);
+            font-size: 14px;
+            color: var(--gray-color);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 20px;
+                gap: 20px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 50px 20px;
+                gap: 40px;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .services-grid,
+            .packages-grid,
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .package-card.featured {
+                transform: scale(1);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-row {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .pricing-price {
+                text-align: left;
+            }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service-card,
+        .package-card,
+        .feature-item {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .service-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .service-card:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        /* ===== GROUP TITLE CHẠY MÀU FULL ===== */
+        .group-title {
+            text-align: center;
+            font-size: 14px;
+            font-weight: 900;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            padding: 10px 12px;
+            margin: 20px 0 8px;
+
+            /* CHỮ CHẠY MÀU */
+            background: linear-gradient(90deg, #ff9ad2, #ffb3e6, #ff9ad2); /* Màu hồng tím */
+            background-size: 200% auto;
+            -webkit-background-size: 200% auto;
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            animation: textMove 3s linear infinite;
+
+            /* VIỀN + NỀN */
+            border: 1px solid rgba(255,105,180,0.4);
+            border-left: 5px solid #ff69b4;
+            border-right: 5px solid #ff69b4;
+
+            /* HIỆU ỨNG GLOW */
+            text-shadow:
+                0 0 10px rgba(255,105,180,0.8),
+                0 0 20px rgba(255,105,180,0.5);
+
+            box-shadow: 
+                0 0 10px rgba(255,105,180,0.2),
+                inset 0 0 8px rgba(255,105,180,0.1);
+
+            border-radius: 6px;
+        }
+
+        /* ANIMATION CHẠY MÀU */
+        @keyframes textMove {
+            0% {
+                background-position: 0% center;
+            }
+            100% {
+                background-position: 200% center;
+            }
+        }   
+        
+        .contact-box {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-top: 25px;
+            align-items: center;
+        }
+
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 260px;
+            padding: 14px;
+            border-radius: 40px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 15px;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            transition: 0.3s ease;
+            color: #fff; /* Ensure text color is white on colored buttons */
+        }
+
+        .contact-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.6), transparent);
+            transition: 0.5s;
+        }
+
+        .contact-btn:hover::before {
+            left: 100%;
+        }
+
+        .contact-btn.fb {
+            background: linear-gradient(90deg, #1877f2, #66a3ff); /* Giữ màu xanh Facebook */
+            color: #fff;
+        }
+
+        .contact-btn.zalo {
+            background: linear-gradient(90deg, #00aaff, #42c7ff); /* Giữ màu xanh Zalo */
+            color: #fff;
+        }
+
+        .contact-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 25px rgba(255, 105, 180, 0.8); /* Shadow màu hồng */
+        }
+
+        .contact-email {
+            margin-top: 18px;
+            color: var(--gray-color);
+            font-size: 13px;
+        }
+    </style>
 </head>
 <body>
-<canvas id="galaxy" aria-hidden="true"></canvas>
-<div class="wrap">
-  <div class="shell">
-    <!-- Hồ sơ -->
-    <section class="panel" aria-label="Hồ sơ">
-      <div class="head">
-        <div class="avatar" id="avatar" title="Nhấn để thả tim">
-          <img src="https://sf-static.upanhlaylink.com/img/image_20260303d07f98686e0b69ca98422945c9469394.jpg"alt="Avatar" loading="lazy" />
-          <span class="online" aria-hidden="true"></span>
+    <!-- HEADER -->
+    <header>
+        <div class="logo">Văn Trường Sp</div>
+        <nav>
+            <a href="#home">Giới Thiệu</a>
+            <a href="#services">Dịch Vụ</a>
+            <a href="#pricing">Bảng Giá</a>
+            <a href="#contact">Liên Hệ</a>
+            <button class="nav-btn">Đăng Ký</button>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Dịch Vụ MXH Mạng Xã Hội </h1>
+            <p>Chúng tôi có hơn 1.000 dịch vụ giúp tăng cường và quảng bá nội dung của bạn từ nhiều Nền tảng truyền thông xã hội bằng công cụ tự động của chúng tôi!Liên hệ với chúng tôi ngay để được hỗ trợ nhé.</p>
+            <div class="hero-buttons">
+                 <button class="btn-primary">Get Started</button>
+                 <button class="btn-secondary">Learn More</button>
+            </div>
         </div>
-        <div class="title">
-          <h1> Tiệm Nhà Bông
-            <span class="badge-verify" title="Verified">
-              <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M12 2l2.3 1.3 2.6-.1 1.7 2 .1 2.6L20 10l1.7 2.2-.1 2.6-1.7 2-2.6-.1L12 22l-2.3-1.3-2.6.1-1.7-2-.1-2.6L4 12l-1.7-2.2.1-2.6 1.7-2 2.6.1L12 2z" fill="url(#g)"/>
-                <path d="M10.2 13.3l-2-2 1.4-1.4 1.3 1.3 3.5-3.5 1.4 1.4-4.9 5.2z" fill="#001217"/>
-                <defs><linearGradient id="g" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse"><stop stop-color="#00ffff"/><stop offset="1" stop-color="#8a2be2"/></linearGradient></defs>
-              </svg>
-            </span>
-          </h1>
-          <div class="sub">Coder • Reverse  • 36xSec</div>
-        </div>
-      </div>
-      <!-- Badges tách riêng, email cùng màu fg -->
-      <div class="badges">
-        <span class="badge">Việt Nam </span>
-        <span class="badge">☎ 0819159899</span>
-        <span class="badge">✉tiemnhabong1101@gmail.com</span>
-      </div> 
-      <p class="bio">Chuyên cung cấp tài khoản prenium giá rẻ    💕</p>
-      <div class="actions">
- <a class="tile" href="https://www.facebook.com/profile.php?id=61587533871213" target="_blank" rel="noopener">📘 <strong>Liên Hệ 1 </strong></a>
-        <a class="tile" href="http://zalo.me/0819159899" target="_blank" rel="noopener">📘 <strong>Liên Hệ 2 </strong></a>
-        <button class="btn" id="toggleMusicBtn" aria-pressed="true">🔊 Tắt nhạc</button>
-      </div>
     </section>
 
-     <!-- Liên kết & mạng xã hội -->
-    <section class="panel" aria-label="Liên kết & mạng xã hội">
-      <div class="section">Tài Nguyên </div>
-       <a class="tile" href="https://www.facebook.com/profile.php?id=61587533871213" target="_blank" rel="noopener">📘 <strong>Gr Mua Bán TK </strong></a>
-       <a class="tile" href="https://zalo.me/g/lwsasj052" target="_blank" rel="noopener">📘 <strong>Nhóm săn sale app giá rẻ </strong></a>
-      <div class="grid">
-      </div>
-       <!-- Liên kết & mạng xã hội -->
-    <section class="panel" aria-label="Bảng Giá">
-      <div class="section">Dịch Vụ </div>
-      <a class="tile" href="https://docs.google.com/spreadsheets/d/15-Q_PKUQaXtWKlcMg8sR0PFIehutrTqgViVShp4vwb8/edit?usp=sharing" target="_blank" rel="noopener">📘 <strong>BẢNG GIÁ CHÍNH </strong></a>
-       <a class="tile" href="https://sf-static.upanhlaylink.com/img/image_20260303a243dd5c6f09d1e45c6fa16224e71994.jpg" target="_blank" rel="noopener">📘 <strong>MEITU VIP+ </strong></a>
-       <a class="tile" href="https://sf-static.upanhlaylink.com/img/image_2026030303d3b30b90cc7fe5e1d1d6fb60ca2067.jpg" rel="noopener">📘 <strong>WINK VIP </strong></a>
-       <a class="tile" href="https://sf-static.upanhlaylink.com/img/image_202603038b63393cadb6a5eb1f1223f6ff3e858b.jpg" target="_blank" rel="noopener">📘 <strong>XINGTU SVIP </strong></a>
-      <a class="tile" href="https://ibb.co/JjFmDdys" target="_blank" rel="noopener">📘 <strong>APP KHÁC </strong></a>
-    
-      <div class="grid">
-      </div>
-      <div class="section">Thông tin liên hệ  </div>
-      <div class="grid">
-        <a class="tile" href="https://www.facebook.com/profile.php?id=61587533871213" target="_blank" rel="noopener">📘 <strong>Facebook</strong></a>
-        <a class="tile" href="http://zalo.me/0819159899" target="_blank" rel="noopener">📘 <strong>Zalo</strong></a>
-        <a class="tile" href="https://www.tiktok.com/@tiemnhabongggg?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener">📘 <strong>TIKTOK</strong></a>
-      </div>
-      <div class="footer">© 2026 • Tiệm Nhà Bông | BIO LINK </div>
+    <!-- ABOUT SERVICES -->
+    <section class="services" id="services">
+        <div class="section-title">
+            <h2>Về Dịch Vụ Của Chúng Tôi</h2>
+            <p>KHÁM PHÁ NHỮNG TÍNH NĂNG SÁNG TẠO NHẤT GIÚP CHÚNG TÔI KHÁC BIỆT SO VỚI ĐỐI THỦ CẠNH TRANH</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">💖</div> <!-- Changed icon to heart for feminine touch -->
+                <h3>Đáng Tin Cậy</h3>
+                <p>Hơn 10.000+ khách hàng đã tin tưởng và đánh giá tích cực trên toàn nền tảng.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">✨</div> <!-- Changed icon for feminine touch -->
+                <h3>Hiệu Quả Hơn Mong Đợi</h3>
+                <p>Giúp bạn tiết kiệm thời gian, tối ưu hiệu suất và đạt kết quả rõ rệt chỉ sau vài lần sử dụng.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">👑</div> <!-- Changed icon for feminine touch -->
+                <h3>Không Chờ Đợi & Không Rườm Rà</h3>
+                <p>Quy trình xử lý tinh gọn – bạn yêu cầu, chúng tôi thực hiện ngay.</p>
+            </div>
+        </div>
     </section>
-  </div>
+
+    <!-- PRICING SECTION -->
+<section class="pricing" id="pricing">
+    <div class="pricing-box">
+        <h2 class="pricing-title section-title">DỊCH VỤ TĂNG TƯƠNG TÁC</h2>
+
+        <!-- FACEBOOK -->
+        <div class="pricing-group">
+            <div class="group-title">FACEBOOK</div>
+
+            <div class="pricing-row">
+                <div class="pricing-service">Tăng Tym Bài Viết</div>
+                <div class="pricing-price">21.000 / 1000 Tym</div>
+            </div>
+
+            <div class="pricing-row">
+                <div class="pricing-service">Tăng Follow</div>
+                <div class="pricing-price">10.000 / 1000 Follow</div>
+            </div>
+
+            <div class="pricing-row">
+                <div class="pricing-service">Tăng Comnent</div>
+                <div class="pricing-price">10.000 / 10 Comnent</div>
+            </div>
+
+            <div class="pricing-row">
+                <div class="pricing-service">Tăng Share Bài Viết</div>
+                <div class="pricing-price">18.000 / 1000 Lượt Share</div>
+            </div>
+
+            <div class="pricing-row">
+                <div class="pricing-service">Tăng View Story</div>
+                <div class="pricing-price">15.000 / 1000 Mắt Xem</div>
+            </div>
+
+            <div class="pricing-row">
+                <div class="pricing-service">Tăng Cảm Xúc Story</div>
+                <div class="pricing-price">21.000 / 1000 Tym</div>
+            </div>
+
+            <div class="pricing-row">
+                <div class="pricing-service">Tăng Thành Viên Nhóm</div>
+                <div class="pricing-price">10.000 / 1000 Mem</div>
+            </div>
+
+            <div class="pricing-row">
+                <div class="pricing-service">Tăng Đánh Giá Page</div>
+                <div class="pricing-price">28.000 / 1000 Lượt Đánh Giá</div>
+            </div>
+
+            <div class="pricing-row">
+                <div class="pricing-service">Hơn 10+ Dịch Vụ Khác</div>
+                <div class="pricing-price">Giá Rẻ-Chất Lượng</div>
+            </div>
+        </div>
+
+        <!-- TIKTOK -->
+        <div class="pricing-group">
+            <div class="group-title">TIKTOK</div>
+            
+            <div class="pricing-row">
+                <div class="pricing-service">Tăng Tym Việt</div>
+                <div class="pricing-price">21.000 / 1000 Tym</div>
+            </div>
+
+
+            <div class="pricing-row">
+                <div class="pricing-service">Tăng Tim Ảo</div>
+                <div class="pricing-price">15.000 / 10.000 Tym Ảo</div>
+            </div>
+
+            <div class="pricing-row">
+                <div class="pricing-service">Tăng Mắt Live</div>
+                <div class="pricing-price">38.000 / 1000/15p</div>
+            </div>
+
+            <div class="pricing-row">
+                <div class="pricing-service">Tăng Follow </div>
+                <div class="pricing-price">39.000 / 1000 Follow</div>
+            </div>
+            
+            <div class="pricing-row">
+                <div class="pricing-service">Tăng View</div>
+                <div class="pricing-price">3.000 / 1000 View</div>
+            </div>
+
+            <div class="pricing-row">
+                <div class="pricing-service">Tăng Share Video</div>
+                <div class="pricing-price">12.000 / 1000 Share</div>
+            </div>
+
+             <div class="pricing-row">
+                <div class="pricing-service">Tăng Yêu Thích</div>
+                <div class="pricing-price">13.000 / 1000 Share</div>
+            </div>
+                
+           <div class="pricing-row">
+                <div class="pricing-service">Tăng Bình Luận</div>
+                <div class="pricing-price">40.000 / 1000 Cmt</div>
+            </div>
+
+           <div class="pricing-row">
+                <div class="pricing-service">Hơn 10+ Dịch Vụ Khác</div>
+                <div class="pricing-price">Giá Rẻ-Chất Lượng</div>
+            </div>
+        </div>
+
+        <!-- INSTAGRAM -->
+        <div class="pricing-group">
+            <div class="group-title">INSTAGRAM</div>
+
+            <div class="pricing-row">
+                <div class="pricing-service">Tăng Follow Việt</div>
+                <div class="pricing-price">41.000 / 1000 Follow</div>
+            </div>
+
+            <div class="pricing-row">
+                <div class="pricing-service">Tăng Follow Tây </div>
+                <div class="pricing-price">12.000 / 1000 Follow</div>
+            </div>
+
+             <div class="pricing-row">
+                <div class="pricing-service">Tăng Tym Bài Viết Việt</div>
+                <div class="pricing-price">25.000 / 1000 Tym</div>
+            </div>
+
+            <div class="pricing-row">
+                <div class="pricing-service">Tăng Tym Bài Viết Tây</div>
+                <div class="pricing-price">10.000 / 1000 Tym</div>
+            </div>
+        </div>
+
+        <!-- KHÁC -->
+        <div class="pricing-group">
+            <div class="group-title">KHÁC</div>
+
+            <div class="pricing-row">
+                <div class="pricing-service"> Shopee</div>
+                <div class="pricing-price pricing-price-pink">Thương Lượng</div>
+            </div>
+
+            <div class="pricing-row">
+                <div class="pricing-service">Telegram</div>
+                <div class="pricing-price pricing-price-pink">Thương Lượng</div>
+            </div>
+
+            <div class="pricing-row">
+                <div class="pricing-service">Youtube</div>
+                <div class="pricing-price pricing-price-pink">Thương Lượng</div>
+            </div>
+
+            <div class="pricing-row">
+                <div class="pricing-service">Dame Tài Khoản Fb</div>
+                <div class="pricing-price pricing-price-pink">Thương Lượng</div>
+            </div>
+
+            <div class="pricing-row">
+                <div class="pricing-service">Rải Link QCAO Nội Dung </div>
+                <div class="pricing-price">35.000/1 tháng</div>
+            </div>
+
+            <div class="pricing-row">
+                <div class="pricing-service">Bán Các Tài Khoản PRENIUM-VIP </div>
+                <div class="pricing-price pricing-price-pink">Thương Lượng</div>
+            </div>
+
+            <div class="pricing-row">
+                <div class="pricing-service">Làm Bio TCN</div>
+                <div class="pricing-price">Thương Lượng</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- FEATURES SECTION -->
+    <section class="features">
+        <div class="section-title">
+            <h2>Lợi Ích Khi Làm Việc Với Chúng Tôi</h2>
+            <p>Lý do hàng ngàn khách hàng đã tin tưởng và lựa chọn dịch vụ của chúng tôi</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">🎀</div> <!-- Changed icon for feminine touch -->
+                <h3>Tốc Độ Nhanh Chóng</h3>
+                <p>Xử lý yêu cầu 24/7, hoàn thành nhanh chóng chỉ từ 5-30 phút cho các dịch vụ cơ bản</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🌸</div> <!-- Changed icon for feminine touch -->
+                <h3>Bảo Mật Tuyệt Đối</h3>
+                <p>Cam kết không lưu giữ thông tin khách hàng, bảo mật toàn diện mọi giao dịch</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">💬</div>
+                <h3>Hỗ Trợ 24/7</h3>
+                <p>Đội ngũ chuyên viên luôn sẵn sàng hỗ trợ mọi vấn đề khách hàng gặp phải</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">💎</div> <!-- Changed icon for feminine touch -->
+                <h3>Giá Cạnh Tranh</h3>
+                <p>Giá dịch vụ tốt nhất thị trường với chất lượng đảm bảo theo tiêu chuẩn cao</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Về Chúng Tôi</h4>
+                <p>Chúng tôi là nhà cung cấp dịch vụ MXH hàng đầu với 10.000+ khách hàng tin tưởng.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Liên Kết Nhanh</h4>
+                <ul class="footer-links">
+                    <li><a href="#home">Trang Chủ</a></li>
+                    <li><a href="#services">Dịch Vụ</a></li>
+                    <li><a href="#pricing">Bảng Giá</a></li>
+                    <li><a href="#packages">Khóa Học</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+    <h4>Liên Hệ</h4>
+
+    <div class="contact-box">
+        <a href="https://www.facebook.com/vantruonggg.08" target="_blank" class="contact-btn fb">
+            🔵 Facebook
+        </a>
+
+        <a href="https://zalo.me/0981251350" target="_blank" class="contact-btn zalo">
+            🟢 Zalo
+        </a>
+
+        <p class="contact-email">📧 dinhvantruong27th05@gmail.com</p>
+    </div>
 </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Văn Trường. All Rights Reserved.</p>
+        </div>
+    </footer>
 
-<div class="toast" id="toast">Đã copy!</div>
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
 
-<audio id="backgroundAudio" loop preload="auto" style="display:none">
-  <source src="https://files.catbox.moe/ztfmk5.mp3" type="audio/mpeg" />
-</audio>
-  
-  <script>
-// Music toggle
-const audio=document.getElementById('backgroundAudio');
-const btn=document.getElementById('toggleMusicBtn');
-(async()=>{try{await audio.play();}catch{btn.textContent='🔈 Bật nhạc';}})();
-btn.addEventListener('click',async()=>{ if(audio.paused){await audio.play(); btn.textContent='🔊 Tắt nhạc';} else { audio.pause(); btn.textContent='🔈 Bật nhạc'; }});
-    
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
 
-// Toast + copy
-const toast=document.getElementById('toast');
-function showToast(text){ toast.textContent=text; toast.style.display='block'; clearTimeout(showToast.t); showToast.t=setTimeout(()=>toast.style.display='none',1500); }
-function safeCopy(t){ if(navigator.clipboard?.writeText){navigator.clipboard.writeText(t).then(()=>showToast('Đã copy!'));} else { const ta=document.createElement('textarea'); ta.value=t; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); showToast('Đã copy!'); }}
-document.getElementById('copyMail')?.addEventListener('click',(e)=>{e.preventDefault(); safeCopy('0819159899')});
-document.getElementById('copyPhone')?.addEventListener('click',(e)=>{e.preventDefault(); safeCopy('tiemnhabong1101@gmail.com')});
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
 
-// Avatar click hearts
-const avatar=document.getElementById('avatar');
-avatar.addEventListener('click',(e)=>{for(let i=0;i<7;i++) spawnHeart(e.offsetX??48, e.offsetY??48);});
-function spawnHeart(x,y){
-  const el=document.createElement('div'); el.textContent='💗'; el.style.position='absolute'; el.style.left=x+'px'; el.style.top=y+'px'; el.style.pointerEvents='none';
-  const fs=14+Math.random()*12; el.style.fontSize=fs+'px'; el.style.opacity=1;
-  const dx=(Math.random()-.5)*60, dy=-(30+Math.random()*60); const rot=(Math.random()-.5)*60;
-  avatar.appendChild(el); const t0=performance.now();
-  function step(t){ const k=Math.min(1,(t-t0)/900); el.style.transform=`translate(${dx*k}px, ${dy*k}px) rotate(${rot*k}deg)`; el.style.opacity=(1-k).toFixed(2); if(k<1) requestAnimationFrame(step); else el.remove(); }
-  requestAnimationFrame(step);
-}
-
-// Galaxy background
-const cvs=document.getElementById('galaxy'), ctx=cvs.getContext('2d');
-let W,H,stars=[],meteors=[]; function size(){W=cvs.width=innerWidth; H=cvs.height=innerHeight}
-function makeStars(n){stars=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.5+.2,v:Math.random()*0.25+0.08}))}
-function draw(){ctx.clearRect(0,0,W,H);
-  const grd=ctx.createRadialGradient(W*.7,H*.3,0,W*.7,H*.3,Math.max(W,H)*.8); grd.addColorStop(0,'rgba(0,255,255,.06)'); grd.addColorStop(1,'transparent'); ctx.fillStyle=grd; ctx.fillRect(0,0,W,H);
-  ctx.fillStyle='#fff'; for(const s of stars){ s.y+=s.v; if(s.y>H){s.y=0; s.x=Math.random()*W} ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2); ctx.fill(); }
-  ctx.strokeStyle=getComputedStyle(document.documentElement).getPropertyValue('--cyan'); ctx.lineWidth=1.6;
-  for(let i=meteors.length;i--;){ const m=meteors[i]; ctx.beginPath(); ctx.moveTo(m.x,m.y); ctx.lineTo(m.x-m.l*.6,m.y+m.l); ctx.stroke(); m.x+=m.v*.35; m.y+=m.v; if(m.y>H) meteors.splice(i,1); }
-  if(Math.random()<0.015) meteors.push({x:Math.random()*W,y:0,l:Math.random()*90+40,v:Math.random()*4+5});
-  requestAnimationFrame(draw);
-}
-addEventListener('resize',()=>{size(); makeStars(280)}); size(); makeStars(280); draw();
-</script>
+        document.querySelectorAll('.service-card, .package-card, .feature-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
 </body>
-</html
+</html>
