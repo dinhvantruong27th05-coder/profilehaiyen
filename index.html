@@ -768,8 +768,9 @@
 
     <!-- Ô tìm kiếm (dán thêm vào dưới, KHÔNG xóa gì) -->
     <div style="text-align:center; margin-bottom:20px;">
-        <input type="text" id="searchBox" placeholder="🔍 Tìm gói..." 
-        style="padding:12px 20px; width:300px; border-radius:20px; border:2px solid #ff69b4;">
+      <input type="text" id="searchBox" placeholder="🔍 Tìm gói..."
+onkeyup="searchCards()"
+style="padding:12px 20px; width:300px; border-radius:20px; border:2px solid #ff69b4;">
     </div>
                 <!-- Card 1 -->
                 <div class="pricing-card">
@@ -1283,21 +1284,20 @@
         document.head.appendChild(style);
  <script>
     // code cũ của bạn (giữ nguyên)
+        function searchCards() {
+    let keyword = document.getElementById("searchBox").value.toLowerCase();
+    let cards = document.querySelectorAll(".pricing-card");
 
-    document.getElementById("searchBox").addEventListener("keyup", function() {
-        let keyword = this.value.toLowerCase();
-        let cards = document.querySelectorAll(".pricing-card");
+    cards.forEach(card => {
+        let text = card.innerText.toLowerCase();
 
-        cards.forEach(card => {
-            let text = card.innerText.toLowerCase();
-
-            if (text.includes(keyword)) {
-                card.style.display = "block";
-            } else {
-                card.style.display = "none";
-            }
-        });
+        if (text.includes(keyword)) {
+            card.style.display = "";
+        } else {
+            card.style.display = "none";
+        }
     });
+}
 </script>
 </body>
 </html>
