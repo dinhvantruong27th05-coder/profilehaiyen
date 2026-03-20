@@ -3,396 +3,831 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Văn Trường - Premium Pastel Interface</title>
+    <title>Phô Mai Que Xinh - Cửa Hàng Chúng Tôi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        :root {
-            --p-pink: #ffafbd;
-            --p-purple: #c9bbff;
-            --p-blue: #a1c4fd;
-            --p-mint: #c2ffd8;
-            --p-yellow: #fff1eb;
-            --text-dark: #4a4a4a;
-            --glass: rgba(255, 255, 255, 0.7);
-            --grad-main: linear-gradient(45deg, #ffafbd, #ffc3a0, #c9bbff, #a1c4fd);
-        }
-
         body {
-            font-family: 'Quicksand', sans-serif;
-            background: 
-                radial-gradient(at 0% 0%, rgba(255, 175, 189, 0.2) 0, transparent 50%),
-                radial-gradient(at 50% 0%, rgba(201, 187, 255, 0.2) 0, transparent 50%),
-                radial-gradient(at 100% 0%, rgba(161, 196, 253, 0.2) 0, transparent 50%),
-                #fdfbfb;
-            color: var(--text-dark);
-            line-height: 1.6;
-            overflow-x: hidden;
+            font-family: 'Poppins', 'Arial', sans-serif;
+            background: linear-gradient(135deg, #fff5f9 0%, #fff0f7 50%, #ffe6f0 100%);
+            min-height: 100vh;
+            padding: 20px;
         }
 
-        /* ===== HEADER GLASSMORPHISM ===== */
-        header {
-            background: rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            padding: 15px 50px;
+        /* ===== HEADER ===== */
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo-section {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
         }
 
-        .logo {
-            font-size: 26px;
-            font-weight: 700;
-            background: var(--grad-main);
+        .logo-icon {
+            font-size: 50px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .header h1 {
+            font-size: 48px;
+            background: linear-gradient(135deg, #ff69b4 0%, #ff1493 50%, #ffa6d6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 2px 2px rgba(0,0,0,0.05));
+            background-clip: text;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-shadow: 0 0 20px rgba(255, 105, 180, 0.3);
         }
 
-        nav {
-            display: flex;
-            gap: 30px;
-            align-items: center;
+        .header p {
+            color: #ff85c0;
+            font-size: 18px;
+            margin-top: 10px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
         }
 
-        nav a {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            color: #ff85a2;
-        }
-
-        /* ===== ĐẶC SẮC: SHIMMER BUTTON ===== */
-        .btn-special {
-            position: relative;
-            background: var(--grad-main);
-            background-size: 300% 300%;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
-            border: none;
-            font-weight: 700;
-            cursor: pointer;
-            overflow: hidden;
-            transition: 0.5s;
-            box-shadow: 0 10px 20px rgba(255, 175, 189, 0.4);
-            animation: gradientMove 5s ease infinite;
-        }
-
-        @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .btn-special::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
-            transform: skewX(-25deg);
-            transition: 0.5s;
-        }
-
-        .btn-special:hover::before {
-            left: 150%;
-        }
-
-        .btn-special:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 15px 30px rgba(201, 187, 255, 0.6);
+        .tagline {
+            color: #ff69b4;
+            font-size: 14px;
+            margin-top: 8px;
+            font-style: italic;
         }
 
         /* ===== HERO SECTION ===== */
         .hero {
-            padding: 120px 20px;
+            background: linear-gradient(135deg, rgba(255, 182, 193, 0.4) 0%, rgba(255, 192, 203, 0.4) 100%);
+            border-radius: 30px;
+            padding: 50px 30px;
             text-align: center;
+            margin-bottom: 40px;
+            border: 3px solid #ffe6f0;
             position: relative;
+            overflow: hidden;
         }
 
-        .hero h1 {
-            font-size: 56px;
-            margin-bottom: 25px;
-            background: linear-gradient(90deg, #ff85a2, #a1c4fd, #c9bbff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 800;
+        .hero::before {
+            content: '✨';
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-size: 30px;
+            animation: twinkle 1.5s infinite;
+        }
+
+        .hero::after {
+            content: '✨';
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 30px;
+            animation: twinkle 1.5s infinite 0.5s;
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+
+        .hero h2 {
+            font-size: 32px;
+            color: #ff1493;
+            margin-bottom: 15px;
+            font-weight: 700;
         }
 
         .hero p {
-            max-width: 700px;
-            margin: 0 auto 40px;
-            font-size: 18px;
-            color: #777;
+            color: #ff69b4;
+            font-size: 16px;
+            margin-bottom: 25px;
+            line-height: 1.8;
         }
 
-        /* ===== MULTI-COLOR CARDS ===== */
-        .services-grid {
+        /* ===== CONTAINER ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* ===== PRODUCTS GRID ===== */
+        .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            padding: 50px;
-            max-width: 1300px;
-            margin: 0 auto;
+            margin-bottom: 50px;
         }
 
-        .card {
-            background: var(--glass);
-            padding: 40px;
-            border-radius: 30px;
-            border: 1px solid rgba(255,255,255,0.8);
-            text-align: center;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-        }
-
-        /* Mỗi card một màu bóng khác nhau */
-        .card:nth-child(1) { box-shadow: 0 20px 40px rgba(255, 175, 189, 0.15); }
-        .card:nth-child(2) { box-shadow: 0 20px 40px rgba(201, 187, 255, 0.15); }
-        .card:nth-child(3) { box-shadow: 0 20px 40px rgba(161, 196, 253, 0.15); }
-
-        .card:hover {
-            transform: translateY(-15px);
+        .product-card {
             background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 35px rgba(255, 105, 180, 0.15);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
         }
 
-        .card-icon {
-            font-size: 50px;
-            margin-bottom: 20px;
-            display: inline-block;
-            background: var(--grad-main);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .product-card:nth-child(1) { animation-delay: 0.1s; }
+        .product-card:nth-child(2) { animation-delay: 0.2s; }
+        .product-card:nth-child(3) { animation-delay: 0.3s; }
+        .product-card:nth-child(4) { animation-delay: 0.4s; }
+        .product-card:nth-child(5) { animation-delay: 0.5s; }
+        .product-card:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        /* ===== BẢNG GIÁ PASTEL MIXED ===== */
-        .pricing {
-            padding: 100px 50px;
+        .product-card:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(255, 105, 180, 0.3);
         }
 
-        .pricing-box {
-            background: rgba(255, 255, 255, 0.6);
-            border-radius: 40px;
-            padding: 50px;
-            max-width: 1000px;
-            margin: 0 auto;
-            border: 1px solid white;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.05);
-        }
-
-        .group-title {
-            background: linear-gradient(90deg, #ffafbd, #c9bbff);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 15px;
-            display: inline-block;
-            font-weight: 700;
-            margin: 30px 0 15px;
-            box-shadow: 0 5px 15px rgba(255, 175, 189, 0.3);
-        }
-
-        .pricing-row {
+        .product-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #ffe6f0 0%, #fff0f7 100%);
             display: flex;
-            justify-content: space-between;
-            padding: 15px 10px;
-            border-bottom: 1px dashed rgba(201, 187, 255, 0.4);
-            transition: 0.3s;
-        }
-
-        .pricing-row:hover {
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 10px;
-            padding-left: 20px;
-        }
-
-        .pricing-price {
-            font-weight: 700;
-            color: #ff85a2;
-        }
-
-        /* ===== CONTACT BUTTONS NÂNG CẤP ===== */
-        .contact-container {
-            display: flex;
+            align-items: center;
             justify-content: center;
-            gap: 20px;
-            margin-top: 50px;
+            font-size: 80px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .fancy-contact {
-            text-decoration: none;
-            padding: 15px 35px;
-            border-radius: 50px;
-            font-weight: 700;
+        .product-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
             color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #ff1493;
+            margin-bottom: 10px;
+            transition: all 0.3s;
+        }
+
+        .product-card:hover .product-title {
+            color: #ff69b4;
+        }
+
+        .product-description {
+            color: #888;
+            font-size: 13px;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            min-height: 40px;
+        }
+
+        .product-price {
             display: flex;
             align-items: center;
             gap: 10px;
-            transition: 0.4s;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
         }
 
-        .fancy-contact.fb { background: linear-gradient(45deg, #667eea, #764ba2); }
-        .fancy-contact.zalo { background: linear-gradient(45deg, #2af598, #009efd); }
-
-        .fancy-contact:hover {
-            transform: scale(1.1) rotate(2deg);
-            filter: brightness(1.1);
+        .price-current {
+            font-size: 24px;
+            font-weight: 800;
+            color: #ff1493;
+            background: linear-gradient(135deg, #ffe6f0 0%, #fff0f7 100%);
+            padding: 5px 15px;
+            border-radius: 10px;
         }
 
-        /* ===== HIỆU ỨNG TRANG TRÍ ===== */
-        .blob {
+        .price-original {
+            font-size: 14px;
+            color: #ccc;
+            text-decoration: line-through;
+        }
+
+        .discount-badge {
+            background: #ff69b4;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        /* ===== BUTTONS ===== */
+        .button-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            flex: 1;
+            min-width: 100px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 15px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.5px;
+        }
+
+        .btn::before {
+            content: '';
             position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
             width: 300px;
             height: 300px;
-            background: var(--grad-main);
-            filter: blur(80px);
-            opacity: 0.2;
-            z-index: -1;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
+            color: white;
+            box-shadow: 0 5px 20px rgba(255, 105, 180, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.6);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #ff69b4;
+            border: 2px solid #ff69b4;
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background: #ff69b4;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 105, 180, 0.3);
+        }
+
+        .btn-heart {
+            width: 50px;
+            height: 50px;
+            padding: 0;
+            background: white;
+            color: #ff69b4;
+            border: 2px solid #ff69b4;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-heart:hover {
+            background: #ff69b4;
+            color: white;
+            transform: scale(1.2);
+        }
+
+        .btn-heart.liked {
+            background: #ff69b4;
+            color: white;
+            animation: heartBeat 0.6s;
+        }
+
+        @keyframes heartBeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            25% {
+                transform: scale(1.3);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact-section {
+            background: linear-gradient(135deg, rgba(255, 182, 193, 0.5) 0%, rgba(255, 192, 203, 0.5) 100%);
+            border-radius: 30px;
+            padding: 40px;
+            text-align: center;
+            margin-top: 50px;
+            border: 2px solid #ffe6f0;
+        }
+
+        .contact-section h3 {
+            font-size: 28px;
+            color: #ff1493;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .contact-section p {
+            color: #ff69b4;
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
-            animation: float 10s infinite alternate;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
         }
 
-        @keyframes float {
-            from { transform: translate(0, 0); }
-            to { transform: translate(100px, 50px); }
+        .contact-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
         }
 
-        /* Mobile */
+        .contact-btn:hover {
+            transform: translateY(-10px) scale(1.15);
+        }
+
+        .zalo-btn {
+            background: linear-gradient(135deg, #0084ff 0%, #0066cc 100%);
+        }
+
+        .messenger-btn {
+            background: linear-gradient(135deg, #0084ff 0%, #0066cc 100%);
+        }
+
+        .phone-btn {
+            background: linear-gradient(135deg, #34c759 0%, #00a82d 100%);
+        }
+
+        .instagram-btn {
+            background: linear-gradient(135deg, #fd5949 0%, #d6249f 50%, #285AEB 100%);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #ff69b4;
+            margin-top: 50px;
+            font-size: 14px;
+            border-top: 2px solid #ffe6f0;
+        }
+
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
-            header { padding: 15px 20px; }
-            nav { display: none; }
-            .hero h1 { font-size: 36px; }
-            .services-grid { padding: 20px; }
+            .header h1 {
+                font-size: 36px;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .hero {
+                padding: 30px 20px;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                min-width: unset;
+            }
+
+            .contact-buttons {
+                gap: 10px;
+            }
+
+            .contact-btn {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+        }
+
+        /* ===== LOADING ANIMATION ===== */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .product-card {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .product-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .product-card:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .product-card:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+
+        .product-card:nth-child(5) {
+            animation-delay: 0.8s;
+        }
+
+        .product-card:nth-child(6) {
+            animation-delay: 1s;
         }
     </style>
 </head>
 <body>
-
-    <div class="blob" style="top: 10%; left: 5%;"></div>
-    <div class="blob" style="bottom: 20%; right: 5%; background: var(--p-mint);"></div>
-
-    <header>
-        <div class="logo">Văn Trường ✨</div>
-        <nav>
-            <a href="#services">Dịch Vụ</a>
-            <a href="#pricing">Bảng Giá</a>
-            <a href="#contact">Liên Hệ</a>
-            <button class="btn-special">Tư Vấn Ngay</button>
-        </nav>
-    </header>
-
-    <section class="hero">
-        <h1>Sáng Tạo & Tỏa Sáng</h1>
-        <p>Hệ sinh thái dịch vụ mạng xã hội được thiết kế dành riêng cho sự phát triển của bạn. Đẹp hơn, nhanh hơn và an toàn hơn bao giờ hết.</p>
-        <div style="display: flex; justify-content: center; gap: 20px;">
-            <button class="btn-special">Bắt Đầu Ngay</button>
-            <button class="btn-special" style="background: white; color: #ff85a2; border: 2px solid #ffafbd;">Xem Bảng Giá</button>
+    <!-- HEADER -->
+    <div class="header">
+        <div class="logo-section">
+            <span class="logo-icon">🧀</span>
+            <h1>Phô Mai Que</h1>
         </div>
-    </section>
+        <p>✨ Thơm ngon - Mềm dẻo - Hấp dẫn ✨</p>
+        <p class="tagline">Dành cho những cô nàng yêu thích vị ngon</p>
+    </div>
 
-    <section class="services-grid" id="services">
-        <div class="card">
-            <div class="card-icon">🌸</div>
-            <h3>Chăm Sóc Tận Tâm</h3>
-            <p>Đội ngũ hỗ trợ 24/7 luôn lắng nghe và giải đáp mọi thắc mắc của bạn một cách nhẹ nhàng nhất.</p>
+    <div class="container">
+        <!-- HERO SECTION -->
+        <div class="hero">
+            <h2>🎉 Khuyến Mãi Hôm Nay 🎉</h2>
+            <p>Mua 3 tặng 1 • Miễn phí vận chuyển • Hàng chính hãng</p>
+            <button class="btn btn-primary">
+                <i class="fas fa-shopping-cart"></i> Mua Ngay
+            </button>
         </div>
-        <div class="card">
-            <div class="card-icon">🌈</div>
-            <h3>Đa Dạng Sắc Màu</h3>
-            <p>Hơn 500+ loại hình dịch vụ khác nhau phù hợp với mọi nhu cầu từ Facebook đến TikTok.</p>
-        </div>
-        <div class="card">
-            <div class="card-icon">💎</div>
-            <h3>Chất Lượng Premium</h3>
-            <p>Cam kết mang lại hiệu quả thật, tương tác thật với quy trình bảo mật chuẩn quốc tế.</p>
-        </div>
-    </section>
 
-    <section class="pricing" id="pricing">
-        <div class="pricing-box">
-            <h2 style="text-align: center; font-size: 32px; margin-bottom: 20px;">Menu Dịch Vụ 🎀</h2>
-            
-            <div class="group-title">FACEBOOK TƯƠNG TÁC</div>
-            <div class="pricing-row">
-                <span>Tăng Tym Bài Viết (Hồng)</span>
-                <span class="pricing-price">21.000đ / 1000</span>
-            </div>
-            <div class="pricing-row">
-                <span>Tăng Follow Cá Nhân</span>
-                <span class="pricing-price">10.000đ / 1000</span>
+        <!-- PRODUCTS GRID -->
+        <div class="products-grid">
+            <!-- PRODUCT 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <span>🧀</span>
+                    <span class="product-badge">-20%</span>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Phô Mai Que Cheddar</h3>
+                    <p class="product-description">Vị cheddar đậm đà, thơm lừng, có chút ngọt thanh</p>
+                    <div class="product-price">
+                        <span class="price-current">29.000đ</span>
+                        <span class="price-original">36.000đ</span>
+                    </div>
+                    <div class="button-group">
+                        <button class="btn btn-primary">
+                            <i class="fas fa-shopping-cart"></i> Mua
+                        </button>
+                        <button class="btn btn-heart" onclick="toggleHeart(this)">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
 
-            <div class="group-title">TIKTOK VIRAL</div>
-            <div class="pricing-row">
-                <span>Tăng View Video</span>
-                <span class="pricing-price">3.000đ / 1000</span>
-            </div>
-            <div class="pricing-row">
-                <span>Tăng Tym TikTok Việt</span>
-                <span class="pricing-price">21.000đ / 1000</span>
+            <!-- PRODUCT 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <span>🧀</span>
+                    <span class="product-badge">HOT</span>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Phô Mai Que Mozzarella</h3>
+                    <p class="product-description">Mềm dẻo, kéo sợi, vị béo ngậy tuyệt vời</p>
+                    <div class="product-price">
+                        <span class="price-current">35.000đ</span>
+                        <span class="price-original">40.000đ</span>
+                    </div>
+                    <div class="button-group">
+                        <button class="btn btn-primary">
+                            <i class="fas fa-shopping-cart"></i> Mua
+                        </button>
+                        <button class="btn btn-heart" onclick="toggleHeart(this)">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
 
-            <div class="group-title">INSTAGRAM AESTHETIC</div>
-            <div class="pricing-row">
-                <span>Tăng Follow Việt</span>
-                <span class="pricing-price">41.000đ / 1000</span>
+            <!-- PRODUCT 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <span>🧀</span>
+                    <span class="product-badge">-15%</span>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Phô Mai Que Parmesan</h3>
+                    <p class="product-description">Vị sảnh khoái, thơm nước phía, đậm đà kinh điển</p>
+                    <div class="product-price">
+                        <span class="price-current">32.000đ</span>
+                        <span class="price-original">37.500đ</span>
+                    </div>
+                    <div class="button-group">
+                        <button class="btn btn-primary">
+                            <i class="fas fa-shopping-cart"></i> Mua
+                        </button>
+                        <button class="btn btn-heart" onclick="toggleHeart(this)">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCT 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <span>🧀</span>
+                    <span class="product-badge">BEST</span>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Phô Mai Que Bơ Tỏi</h3>
+                    <p class="product-description">Kết hợp bơ lạnh và tỏi thơm, độc đáo và ngon miệng</p>
+                    <div class="product-price">
+                        <span class="price-current">38.000đ</span>
+                        <span class="price-original">45.000đ</span>
+                    </div>
+                    <div class="button-group">
+                        <button class="btn btn-primary">
+                            <i class="fas fa-shopping-cart"></i> Mua
+                        </button>
+                        <button class="btn btn-heart" onclick="toggleHeart(this)">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCT 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <span>🧀</span>
+                    <span class="product-badge">-25%</span>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Phô Mai Que Gouda</h3>
+                    <p class="product-description">Vị caramel nhẹ, béo ngậy, ăn cứng mềm vừa phải</p>
+                    <div class="product-price">
+                        <span class="price-current">31.000đ</span>
+                        <span class="price-original">41.500đ</span>
+                    </div>
+                    <div class="button-group">
+                        <button class="btn btn-primary">
+                            <i class="fas fa-shopping-cart"></i> Mua
+                        </button>
+                        <button class="btn btn-heart" onclick="toggleHeart(this)">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCT 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <span>🧀</span>
+                    <span class="product-badge">NEW</span>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Phô Mai Que Brie Dâu</h3>
+                    <p class="product-description">Mới lạ - Kết hợp brie và vị dâu tây ngọt ngào</p>
+                    <div class="product-price">
+                        <span class="price-current">42.000đ</span>
+                        <span class="price-original">48.000đ</span>
+                    </div>
+                    <div class="button-group">
+                        <button class="btn btn-primary">
+                            <i class="fas fa-shopping-cart"></i> Mua
+                        </button>
+                        <button class="btn btn-heart" onclick="toggleHeart(this)">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
 
-    <footer id="contact" style="text-align: center; padding: 80px 20px; background: rgba(255,255,255,0.4);">
-        <h2 style="margin-bottom: 10px;">Kết Nối Với Văn Trường</h2>
-        <p>Đừng ngần ngại liên hệ để nhận được ưu đãi tốt nhất trong hôm nay!</p>
-        
-        <div class="contact-container">
-            <a href="#" class="fancy-contact fb">
-                <span>Facebook</span>
-            </a>
-            <a href="#" class="fancy-contact zalo">
-                <span>Zalo</span>
-            </a>
+        <!-- CONTACT SECTION -->
+        <div class="contact-section">
+            <h3>📞 Liên Hệ Chúng Tôi</h3>
+            <p>Có câu hỏi? Chúng tôi luôn sẵn sàng giúp bạn!</p>
+            <div class="contact-buttons">
+                <a href="https://zalo.me" class="contact-btn zalo-btn" title="Zalo">
+                    <i class="fab fa-comment"></i>
+                </a>
+                <a href="https://m.me" class="contact-btn messenger-btn" title="Messenger">
+                    <i class="fab fa-facebook-messenger"></i>
+                </a>
+                <a href="tel:0123456789" class="contact-btn phone-btn" title="Gọi">
+                    <i class="fas fa-phone"></i>
+                </a>
+                <a href="https://instagram.com" class="contact-btn instagram-btn" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
         </div>
-        
-        <p style="margin-top: 40px; font-size: 14px; color: #999;">&copy; 2026 Van Truong Boutique Service. Made with Love 💖</p>
-    </footer>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <p>💖 Cảm ơn bạn đã ghé thăm cửa hàng của chúng tôi! 💖</p>
+            <p>© 2024 Phô Mai Que - Ngon Từ Trái Tim</p>
+        </div>
+    </div>
 
     <script>
-        // Hiệu ứng cuộn mượt và xuất hiện dần
-        const cards = document.querySelectorAll('.card');
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    entry.target.style.opacity = 1;
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, { threshold: 0.1 });
+        // Heart button animation
+        function toggleHeart(button) {
+            const icon = button.querySelector('i');
+            button.classList.toggle('liked');
+            
+            if (button.classList.contains('liked')) {
+                icon.classList.remove('far');
+                icon.classList.add('fas');
+            } else {
+                icon.classList.remove('fas');
+                icon.classList.add('far');
+            }
+        }
 
-        cards.forEach(card => {
-            card.style.opacity = 0;
-            card.style.transform = 'translateY(50px)';
-            card.style.transition = '0.8s ease-out';
-            observer.observe(card);
+        // Add to cart button
+        document.querySelectorAll('.btn-primary').forEach(btn => {
+            if (!btn.onclick) {
+                btn.addEventListener('click', function(e) {
+                    if (e.target.closest('.product-card')) {
+                        showNotification('✨ Đã thêm vào giỏ hàng! ✨');
+                    }
+                });
+            }
         });
+
+        // Notification
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
+                color: white;
+                padding: 15px 25px;
+                border-radius: 15px;
+                font-weight: 700;
+                z-index: 1000;
+                animation: slideIn 0.4s ease-out;
+                box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.4s ease-out';
+                setTimeout(() => notification.remove(), 400);
+            }, 2000);
+        }
+
+        // Add animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    opacity: 0;
+                    transform: translateX(100px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+            @keyframes slideOut {
+                from {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+                to {
+                    opacity: 0;
+                    transform: translateX(100px);
+                }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
