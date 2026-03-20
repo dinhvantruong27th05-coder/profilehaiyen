@@ -764,8 +764,13 @@
 
         <!-- PRICING CARDS SECTION -->
         <div class="pricing-section">
-            <h2>📦 Các Gói Hạng Mục</h2>
-            <div class="pricing-cards">
+    <h2>📦 Các Gói Hạng Mục</h2>
+
+    <!-- Ô tìm kiếm (dán thêm vào dưới, KHÔNG xóa gì) -->
+    <div style="text-align:center; margin-bottom:20px;">
+        <input type="text" id="searchBox" placeholder="🔍 Tìm gói..." 
+        style="padding:12px 20px; width:300px; border-radius:20px; border:2px solid #ff69b4;">
+    </div>
                 <!-- Card 1 -->
                 <div class="pricing-card">
                     <span class="pricing-badge">BEST SELLER</span>
@@ -1276,6 +1281,23 @@
             }
         `;
         document.head.appendChild(style);
-    </script>
+ <script>
+    // code cũ của bạn (giữ nguyên)
+
+    document.getElementById("searchBox").addEventListener("keyup", function() {
+        let keyword = this.value.toLowerCase();
+        let cards = document.querySelectorAll(".pricing-card");
+
+        cards.forEach(card => {
+            let text = card.innerText.toLowerCase();
+
+            if (text.includes(keyword)) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    });
+</script>
 </body>
 </html>
