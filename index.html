@@ -3,1301 +3,234 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phô Mai Que Xinh - Cửa Hàng Chúng Tôi</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Gửi Người Đặc Biệt</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --primary-pink: #ffafbd;
+            --secondary-pink: #ffc3a0;
+            --text-color: #5d5d5d;
+            --glass-bg: rgba(255, 255, 255, 0.7);
         }
 
         body {
-            font-family: 'Poppins', 'Arial', sans-serif;
-            background: linear-gradient(135deg, #fff5f9 0%, #fff0f7 50%, #ffe6f0 100%);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             min-height: 100vh;
-            padding: 20px;
-        }
-
-        /* ===== HEADER ===== */
-        .header {
-            text-align: center;
-            margin-bottom: 50px;
-            animation: slideDown 0.8s ease-out;
-        }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .logo-section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .logo-icon {
-            font-size: 50px;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-15px);
-            }
-        }
-
-        .header h1 {
-            font-size: 48px;
-            background: linear-gradient(135deg, #ff69b4 0%, #ff1493 50%, #ffa6d6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 800;
-            letter-spacing: 2px;
-        }
-
-        .header p {
-            color: #ff85c0;
-            font-size: 18px;
-            margin-top: 10px;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-        }
-
-        .tagline {
-            color: #ff69b4;
-            font-size: 14px;
-            margin-top: 8px;
-            font-style: italic;
-        }
-
-        /* ===== HERO SECTION ===== */
-        .hero {
-            background: linear-gradient(135deg, rgba(255, 182, 193, 0.4) 0%, rgba(255, 192, 203, 0.4) 100%);
-            border-radius: 30px;
-            padding: 50px 30px;
-            text-align: center;
-            margin-bottom: 40px;
-            border: 3px solid #ffe6f0;
-            position: relative;
+            background: linear-gradient(135deg, var(--primary-pink), var(--secondary-pink));
+            font-family: 'Quicksand', sans-serif;
             overflow: hidden;
+            color: var(--text-color);
         }
 
-        .hero::before {
-            content: '✨';
-            position: absolute;
-            top: 20px;
-            left: 30px;
-            font-size: 30px;
-            animation: twinkle 1.5s infinite;
-        }
-
-        .hero::after {
-            content: '✨';
-            position: absolute;
-            bottom: 20px;
-            right: 30px;
-            font-size: 30px;
-            animation: twinkle 1.5s infinite 0.5s;
-        }
-
-        @keyframes twinkle {
-            0%, 100% {
-                opacity: 0.3;
-                transform: scale(1);
-            }
-            50% {
-                opacity: 1;
-                transform: scale(1.2);
-            }
-        }
-
-        .hero h2 {
-            font-size: 32px;
-            color: #ff1493;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        .hero p {
-            color: #ff69b4;
-            font-size: 16px;
-            margin-bottom: 25px;
-            line-height: 1.8;
-        }
-
-        /* ===== CONTAINER ===== */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* ===== FILTER TAGS ===== */
-        .filter-section {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-            animation: fadeInUp 0.6s ease-out;
-        }
-
-        .filter-tag {
-            padding: 10px 20px;
-            border: 2px solid #ffb6d9;
-            background: white;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 14px;
-            color: #333;
-            transition: all 0.3s;
-            font-weight: 600;
-        }
-
-        .filter-tag:hover,
-        .filter-tag.active {
-            background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
-            color: white;
-            border-color: #ff1493;
-            transform: scale(1.05);
-        }
-
-        /* ===== PRICING TABLE SECTION ===== */
-        .pricing-section {
-            background: linear-gradient(135deg, rgba(255, 182, 193, 0.3) 0%, rgba(255, 192, 203, 0.3) 100%);
-            border-radius: 30px;
-            padding: 40px;
-            margin-bottom: 50px;
-            border: 2px solid #ffe6f0;
-        }
-
-        .pricing-section h2 {
-            font-size: 32px;
-            color: #ff1493;
-            text-align: center;
-            margin-bottom: 30px;
-            font-weight: 800;
-        }
-
-        .pricing-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 30px;
-        }
-
-        .pricing-card {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 35px rgba(255, 105, 180, 0.15);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .pricing-card::before {
-            content: '';
-            position: absolute;
+        /* Hiệu ứng nền tim rơi */
+        .hearts-container {
+            position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, #ff69b4 0%, #ff1493 50%, #ffa6d6 100%);
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 50px rgba(255, 105, 180, 0.25);
-        }
-
-        .pricing-card-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: #ff1493;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .pricing-card-title i {
-            font-size: 24px;
-        }
-
-        .pricing-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-        }
-
-        .pricing-description {
-            color: #888;
-            font-size: 13px;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        .pricing-list {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #f5f5f5;
-        }
-
-        .pricing-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .pricing-item-name {
-            flex: 1;
-        }
-
-        .item-label {
-            font-weight: 600;
-            color: #333;
-            font-size: 14px;
-        }
-
-        .item-duration {
-            color: #ccc;
-            font-size: 12px;
-        }
-
-        .pricing-item-price {
-            font-size: 18px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* ===== PRODUCTS SECTION ===== */
-        .products-section {
-            margin-bottom: 50px;
-        }
-
-        .section-title {
-            font-size: 32px;
-            color: #ff1493;
-            text-align: center;
-            margin-bottom: 30px;
-            font-weight: 800;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .product-card {
-            background: white;
-            border-radius: 25px;
-            overflow: hidden;
-            box-shadow: 0 10px 35px rgba(255, 105, 180, 0.15);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            animation: fadeInUp 0.6s ease-out forwards;
-            opacity: 0;
-        }
-
-        .product-card:nth-child(1) { animation-delay: 0.1s; }
-        .product-card:nth-child(2) { animation-delay: 0.2s; }
-        .product-card:nth-child(3) { animation-delay: 0.3s; }
-        .product-card:nth-child(4) { animation-delay: 0.4s; }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .product-card:hover {
-            transform: translateY(-15px) scale(1.05);
-            box-shadow: 0 20px 50px rgba(255, 105, 180, 0.3);
-        }
-
-        .product-image {
             width: 100%;
-            height: 250px;
-            background: linear-gradient(135deg, #ffe6f0 0%, #fff0f7 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 80px;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Khung chứa chính (Glassmorphism) */
+        .container {
             position: relative;
-            overflow: hidden;
+            z-index: 1;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            max-width: 400px;
+            width: 90%;
+            animation: fadeIn 1.5s ease-out;
         }
 
-        .product-image::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
-            animation: shine 3s infinite;
-        }
-
-        @keyframes shine {
-            0% {
-                transform: translateX(-100%);
-            }
-            100% {
-                transform: translateX(100%);
-            }
-        }
-
-        .product-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 700;
-            animation: pulse 2s infinite;
-        }
-
-        .product-info {
-            padding: 25px;
-        }
-
-        .product-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: #ff1493;
-            margin-bottom: 10px;
-        }
-
-        .product-description {
-            color: #888;
-            font-size: 13px;
-            margin-bottom: 15px;
-            line-height: 1.6;
-        }
-
-        .product-price {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: #d81b60;
             margin-bottom: 20px;
         }
 
-        .price-current {
-            font-size: 22px;
-            font-weight: 800;
-            color: #ff1493;
+        p {
+            line-height: 1.6;
+            font-size: 1.1rem;
         }
 
-        .price-original {
-            font-size: 13px;
-            color: #ccc;
-            text-decoration: line-through;
-        }
-
-        /* ===== BUTTONS ===== */
-        .button-group {
+        /* Nút bấm xịn xò */
+        .btn-group {
+            margin-top: 30px;
             display: flex;
-            gap: 10px;
+            justify-content: center;
+            gap: 15px;
         }
 
         .btn {
-            flex: 1;
-            padding: 12px 20px;
+            padding: 12px 30px;
             border: none;
-            border-radius: 15px;
-            font-size: 14px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-            letter-spacing: 0.5px;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .btn:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
-            color: white;
-            box-shadow: 0 5px 20px rgba(255, 105, 180, 0.4);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.6);
-        }
-
-        .btn-secondary {
-            background: white;
-            color: #ff69b4;
-            border: 2px solid #ff69b4;
-        }
-
-        .btn-secondary:hover {
-            background: #ff69b4;
-            color: white;
-            transform: translateY(-3px);
-        }
-
-        .btn-heart {
-            width: 50px;
-            height: 50px;
-            padding: 0;
-            background: white;
-            color: #ff69b4;
-            border: 2px solid #ff69b4;
-            font-size: 18px;
-        }
-
-        .btn-heart:hover {
-            background: #ff69b4;
-            color: white;
-            transform: scale(1.15);
-        }
-
-        .btn-heart.liked {
-            background: #ff69b4;
-            color: white;
-            animation: heartBeat 0.6s;
-        }
-
-        @keyframes heartBeat {
-            0%, 100% {
-                transform: scale(1);
-            }
-            25% {
-                transform: scale(1.3);
-            }
-            50% {
-                transform: scale(1.1);
-            }
-        }
-
-        /* ===== PRICING TABLE ===== */
-        .pricing-table-section {
-            background: white;
-            border-radius: 30px;
-            padding: 40px;
-            margin-bottom: 50px;
-            border: 2px solid #ffe6f0;
-            box-shadow: 0 10px 35px rgba(255, 105, 180, 0.15);
-        }
-
-        .pricing-table-section h2 {
-            font-size: 28px;
-            color: #ff1493;
-            text-align: center;
-            margin-bottom: 30px;
-            font-weight: 800;
-        }
-
-        .pricing-table {
-            overflow-x: auto;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th {
-            background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
-            color: white;
-            padding: 15px;
-            text-align: left;
-            font-weight: 700;
-            font-size: 14px;
-        }
-
-        td {
-            padding: 15px;
-            border-bottom: 1px solid #f5f5f5;
-            color: #333;
-        }
-
-        tr:hover {
-            background: #fff5f9;
-        }
-
-        tr:last-child td {
-            border-bottom: none;
-        }
-
-        .price-cell {
-            font-weight: 700;
-            color: #ff1493;
-            font-size: 16px;
-        }
-
-        .action-cell {
-            text-align: center;
-        }
-
-        .action-btn {
-            background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 10px;
+            border-radius: 50px;
             cursor: pointer;
             font-weight: 600;
-            transition: all 0.3s;
-            font-size: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(216, 27, 96, 0.2);
+            text-decoration: none;
+            display: inline-block;
         }
 
-        .action-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+        .btn-yes {
+            background: linear-gradient(45deg, #ff4081, #ff80ab);
+            color: white;
         }
 
-        /* ===== CONTACT SECTION ===== */
-        .contact-section {
-            background: linear-gradient(135deg, rgba(255, 182, 193, 0.5) 0%, rgba(255, 192, 203, 0.5) 100%);
-            border-radius: 30px;
-            padding: 40px;
-            text-align: center;
-            margin-top: 50px;
-            border: 2px solid #ffe6f0;
+        .btn-yes:hover {
+            transform: scale(1.1) translateY(-3px);
+            box-shadow: 0 8px 20px rgba(216, 27, 96, 0.4);
         }
 
-        .contact-section h3 {
-            font-size: 28px;
-            color: #ff1493;
-            margin-bottom: 15px;
-            font-weight: 800;
+        .btn-no {
+            background: #fff;
+            color: #ff4081;
+            border: 1px solid #ff4081;
         }
 
-        .contact-section p {
-            color: #ff69b4;
-            font-size: 16px;
-            margin-bottom: 25px;
+        /* Nút nhạc nổi */
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            cursor: pointer;
         }
 
-        .contact-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .contact-btn {
-            width: 70px;
-            height: 70px;
+        .music-disk {
+            width: 50px;
+            height: 50px;
+            background: white;
             border-radius: 50%;
             display: flex;
-            align-items: center;
             justify-content: center;
-            font-size: 28px;
-            color: white;
-            text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            align-items: center;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            animation: rotate 3s linear infinite;
+            animation-play-state: paused;
         }
 
-        .contact-btn:hover {
-            transform: translateY(-10px) scale(1.15);
+        .music-disk.playing {
+            animation-play-state: running;
         }
 
-        .zalo-btn {
-            background: linear-gradient(135deg, #0084ff 0%, #0066cc 100%);
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
-        .messenger-btn {
-            background: linear-gradient(135deg, #0084ff 0%, #0066cc 100%);
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .phone-btn {
-            background: linear-gradient(135deg, #34c759 0%, #00a82d 100%);
-        }
-
-        .instagram-btn {
-            background: linear-gradient(135deg, #fd5949 0%, #d6249f 50%, #285AEB 100%);
-        }
-
-        /* ===== FOOTER ===== */
-        .footer {
-            text-align: center;
-            padding: 30px;
-            color: #ff69b4;
-            margin-top: 50px;
-            font-size: 14px;
-            border-top: 2px solid #ffe6f0;
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 36px;
-            }
-
-            .pricing-cards {
-                grid-template-columns: 1fr;
-            }
-
-            .products-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            .hero {
-                padding: 30px 20px;
-            }
-
-            .button-group {
-                flex-direction: column;
-            }
-
-            .btn {
-                min-width: unset;
-            }
-
-            .contact-buttons {
-                gap: 10px;
-            }
-
-            .contact-btn {
-                width: 60px;
-                height: 60px;
-                font-size: 24px;
-            }
-
-            table {
-                font-size: 12px;
-            }
-
-            th, td {
-                padding: 10px;
-            }
+        /* Responsive */
+        @media (max-width: 480px) {
+            h1 { font-size: 2rem; }
+            .container { padding: 25px; }
         }
     </style>
 </head>
 <body>
-    <!-- HEADER -->
-    <div class="header">
-        <div class="logo-section">
-            <span class="logo-icon">🧀</span>
-            <h1>Phô Mai Que</h1>
-        </div>
-        <p>✨ Thơm ngon - Mềm dẻo - Hấp dẫn ✨</p>
-        <p class="tagline">Dành cho những cô nàng yêu thích vị ngon</p>
-    </div>
+
+    <div class="hearts-container" id="hearts-container"></div>
 
     <div class="container">
-        <!-- HERO SECTION -->
-        <div class="hero">
-            <h2>🎉 Khuyến Mãi Hôm Nay 🎉</h2>
-            <p>Mua 3 tặng 1 • Miễn phí vận chuyển • Hàng chính hãng</p>
-            <button class="btn btn-primary">
-                <i class="fas fa-shopping-cart"></i> Mua Ngay
-            </button>
+        <!-- NỘI DUNG CHÍNH CỦA BẠN (GIỮ NGUYÊN) -->
+        <h1>Gửi cậu... ❤️</h1>
+        <p id="main-content">
+            Cảm ơn cậu vì đã xuất hiện trong cuộc sống của tớ. 
+            Mọi thứ trở nên dịu dàng hơn khi có cậu ở bên.
+        </p>
+        
+        <div class="btn-group">
+            <button class="btn btn-yes" onclick="celebrate()">Đồng ý</button>
+            <button class="btn btn-no" id="noBtn" onmouseover="moveNoButton()">Không</button>
         </div>
-
-        <!-- FILTER TAGS -->
-        <div class="filter-section">
-            <button class="filter-tag active">Tất cả</button>
-            <button class="filter-tag">Cheddar</button>
-            <button class="filter-tag">Mozzarella</button>
-            <button class="filter-tag">Parmesan</button>
-            <button class="filter-tag">Bơ Tỏi</button>
-            <button class="filter-tag">Gouda</button>
-        </div>
-
-        <!-- PRICING CARDS SECTION -->
-        <div class="pricing-section">
-    <h2>📦 Các Gói Hạng Mục</h2>
-
-    <!-- Ô tìm kiếm (dán thêm vào dưới, KHÔNG xóa gì) -->
-    <div style="text-align:center; margin-bottom:20px;">
-      <input type="text" id="searchBox" placeholder="🔍 Tìm gói..."
-onkeyup="searchCards()"
-style="padding:12px 20px; width:300px; border-radius:20px; border:2px solid #ff69b4;">
     </div>
-                <!-- Card 1 -->
-                <div class="pricing-card">
-                    <span class="pricing-badge">BEST SELLER</span>
-                    <h3 class="pricing-card-title">
-                        <i class="fas fa-box"></i> MEITU VIP+
-                    </h3>
-                    <p class="pricing-description">Đăng nhập tối đa 1 thiết bị (log quá kick không bảo hành), sử dụng riêng tư bảo mật</p>
-                    <div class="pricing-list">
-                        <div class="pricing-item">
-                            <div class="pricing-item-name">
-                                <div class="item-label">1 tuần</div>
-                                <div class="item-duration">Không bao gồm</div>
-                            </div>
-                            <div class="pricing-item-price">30.000đ</div>
-                        </div>
-                        <div class="pricing-item">
-                            <div class="pricing-item-name">
-                                <div class="item-label">1 Tháng</div>
-                                <div class="item-duration">Tiết kiệm 20%</div>
-                            </div>
-                            <div class="pricing-item-price">67.000đ</div>
-                        </div>
-                        <div class="pricing-item">
-                            <div class="pricing-item-name">
-                                <div class="item-label">12 Tháng</div>
-                                <div class="item-duration">Tiết kiệm 25%</div>
-                            </div>
-                            <div class="pricing-item-price">499.000đ</div>
-                        </div>
-                    </div>
-                    <button class="btn btn-primary" style="width: 100%;">
-                        <i class="fas fa-shopping-cart"></i> Mua Ngay
-                    </button>
-                </div>
 
-                <!-- Card 2 -->
-                <div class="pricing-card">
-                    <span class="pricing-badge">HOT</span>
-                    <h3 class="pricing-card-title">
-                        <i class="fas fa-gift"></i> XINGTU SVIP - Tài Khoản Cấp
-                    </h3>
-                    <p class="pricing-description">Đăng nhập tối đa 1 thiết bị (log quá kick không bảo hành), sử dụng riêng tư bảo mật</p>
-                    <div class="pricing-list">
-                        <div class="pricing-item">
-                            <div class="pricing-item-name">
-                                <div class="item-label">1 Tháng</div>
-                                <div class="item-duration">Tiết kiệm 30%</div>
-                            </div>
-                            <div class="pricing-item-price">140.000đ</div>
-                        </div>
-                        <div class="pricing-item">
-                            <div class="pricing-item-name">
-                                <div class="item-label">10 Tháng</div>
-                                <div class="item-duration">Tiết kiệm 35%</div>
-                            </div>
-                            <div class="pricing-item-price">590.000đ</div>
-                        </div>
-                        <div class="pricing-item">
-                            <div class="pricing-item-name">
-                                <div class="item-label">12 Tháng</div>
-                                <div class="item-duration">Tiết kiệm 40%</div>
-                            </div>
-                            <div class="pricing-item-price">639.000đ</div>
-                        </div>
-                    </div>
-                    <button class="btn btn-primary" style="width: 100%;">
-                        <i class="fas fa-shopping-cart"></i> Chọn Gói
-                    </button>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="pricing-card">
-                    <span class="pricing-badge">MỚI</span>
-                    <h3 class="pricing-card-title">
-                        <i class="fas fa-crown"></i> XINGHUI VIP
-                    </h3>
-                    <p class="pricing-description">Sử dụng riêng tư bảo mật</p>
-                    <div class="pricing-list">
-                        <div class="pricing-item">
-                            <div class="pricing-item-name">
-                                <div class="item-label">1 Tháng</div>
-                                <div class="item-duration">Tiết kiệm 50%</div>
-                            </div>
-                            <div class="pricing-item-price">190.000đ</div>
-                        </div>
-                        <div class="pricing-item">
-                            <div class="pricing-item-name">
-                                <div class="item-label">3 Tháng</div>
-                                <div class="item-duration">Tiết kiệm 55%</div>
-                            </div>
-                            <div class="pricing-item-price">550.000</div>
-                        </div>
-                        <div class="pricing-item">
-                            <div class="pricing-item-name">
-                                <div class="item-label">12 Tháng</div>
-                                <div class="item-duration">Tiết kiệm 60%</div>
-                            </div>
-                            <div class="pricing-item-price">1.990.000đ</div>
-                        </div>
-                    </div>
-                    <button class="btn btn-primary" style="width: 100%;">
-                        <i class="fas fa-shopping-cart"></i> Chọn Gói
-                    </button>
-                </div>
-            </div>
+    <!-- Nhạc nền (Thay link nhạc của bạn vào src) -->
+    <div class="music-player" onclick="toggleMusic()">
+        <div class="music-disk" id="disk">
+            🎵
         </div>
-
-          <!-- PRICING CARDS SECTION -->
-        <div class="pricing-section">
-            <h2>📦 Các Gói Hạng Mục</h2>
-            <div class="pricing-cards">
-                <!-- Card 1 -->
-                <div class="pricing-card">
-                    <span class="pricing-badge">BEST SELLER</span>
-                    <h3 class="pricing-card-title">
-                        <i class="fas fa-box"></i> Gói Giá Rẻ
-                    </h3>
-                    <p class="pricing-description">Gói nhỏ, dùng thử, rất tiện lợi</p>
-                    <div class="pricing-list">
-                        <div class="pricing-item">
-                            <div class="pricing-item-name">
-                                <div class="item-label">Lẻ 1 que</div>
-                                <div class="item-duration">Không bao gồm</div>
-                            </div>
-                            <div class="pricing-item-price">8.000đ</div>
-                        </div>
-                        <div class="pricing-item">
-                            <div class="pricing-item-name">
-                                <div class="item-label">Chục (10 que)</div>
-                                <div class="item-duration">Tiết kiệm 20%</div>
-                            </div>
-                            <div class="pricing-item-price">72.000đ</div>
-                        </div>
-                        <div class="pricing-item">
-                            <div class="pricing-item-name">
-                                <div class="item-label">Tá (12 que)</div>
-                                <div class="item-duration">Tiết kiệm 25%</div>
-                            </div>
-                            <div class="pricing-item-price">72.000đ</div>
-                        </div>
-                    </div>
-                    <button class="btn btn-primary" style="width: 100%;">
-                        <i class="fas fa-shopping-cart"></i> Chọn Gói
-                    </button>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="pricing-card">
-                    <span class="pricing-badge">HOT</span>
-                    <h3 class="pricing-card-title">
-                        <i class="fas fa-gift"></i> Gói Tiết Kiệm
-                    </h3>
-                    <p class="pricing-description">Gói vừa, cân bằng giá và lượng</p>
-                    <div class="pricing-list">
-                        <div class="pricing-item">
-                            <div class="pricing-item-name">
-                                <div class="item-label">Hộp 20 que</div>
-                                <div class="item-duration">Tiết kiệm 30%</div>
-                            </div>
-                            <div class="pricing-item-price">140.000đ</div>
-                        </div>
-                        <div class="pricing-item">
-                            <div class="pricing-item-name">
-                                <div class="item-label">Hộp 30 que</div>
-                                <div class="item-duration">Tiết kiệm 35%</div>
-                            </div>
-                            <div class="pricing-item-price">195.000đ</div>
-                        </div>
-                        <div class="pricing-item">
-                            <div class="pricing-item-name">
-                                <div class="item-label">Hộp 50 que</div>
-                                <div class="item-duration">Tiết kiệm 40%</div>
-                            </div>
-                            <div class="pricing-item-price">300.000đ</div>
-                        </div>
-                    </div>
-                    <button class="btn btn-primary" style="width: 100%;">
-                        <i class="fas fa-shopping-cart"></i> Chọn Gói
-                    </button>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="pricing-card">
-                    <span class="pricing-badge">MỚI</span>
-                    <h3 class="pricing-card-title">
-                        <i class="fas fa-crown"></i> Gói Premium
-                    </h3>
-                    <p class="pricing-description">Gói to, dành cho sự kiện & party</p>
-                    <div class="pricing-list">
-                        <div class="pricing-item">
-                            <div class="pricing-item-name">
-                                <div class="item-label">Hộp 100 que</div>
-                                <div class="item-duration">Tiết kiệm 50%</div>
-                            </div>
-                            <div class="pricing-item-price">550.000đ</div>
-                        </div>
-                        <div class="pricing-item">
-                            <div class="pricing-item-name">
-                                <div class="item-label">Hộp 200 que</div>
-                                <div class="item-duration">Tiết kiệm 55%</div>
-                            </div>
-                            <div class="pricing-item-price">1.000.000đ</div>
-                        </div>
-                        <div class="pricing-item">
-                            <div class="pricing-item-name">
-                                <div class="item-label">Gói Cặp Đôi</div>
-                                <div class="item-duration">Tiết kiệm 60%</div>
-                            </div>
-                            <div class="pricing-item-price">1.800.000đ</div>
-                        </div>
-                    </div>
-                    <button class="btn btn-primary" style="width: 100%;">
-                        <i class="fas fa-shopping-cart"></i> Chọn Gói
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- PRODUCTS SECTION -->
-        <div class="products-section">
-            <h2 class="section-title">🌟 Các Loại Phô Mai Que</h2>
-            <div class="products-grid">
-                <!-- PRODUCT 1 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <span>🧀</span>
-                        <span class="product-badge">-20%</span>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title">Phô Mai Que Cheddar</h3>
-                        <p class="product-description">Vị cheddar đậm đà, thơm lừng, có chút ngọt thanh</p>
-                        <div class="product-price">
-                            <span class="price-current">29.000đ</span>
-                            <span class="price-original">36.000đ</span>
-                        </div>
-                        <div class="button-group">
-                            <button class="btn btn-primary">
-                                <i class="fas fa-shopping-cart"></i> Mua
-                            </button>
-                            <button class="btn btn-heart" onclick="toggleHeart(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PRODUCT 2 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <span>🧀</span>
-                        <span class="product-badge">HOT</span>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title">Phô Mai Que Mozzarella</h3>
-                        <p class="product-description">Mềm dẻo, kéo sợi, vị béo ngậy tuyệt vời</p>
-                        <div class="product-price">
-                            <span class="price-current">35.000đ</span>
-                            <span class="price-original">40.000đ</span>
-                        </div>
-                        <div class="button-group">
-                            <button class="btn btn-primary">
-                                <i class="fas fa-shopping-cart"></i> Mua
-                            </button>
-                            <button class="btn btn-heart" onclick="toggleHeart(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PRODUCT 3 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <span>🧀</span>
-                        <span class="product-badge">-15%</span>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title">Phô Mai Que Parmesan</h3>
-                        <p class="product-description">Vị sảnh khoái, thơm nước phía, đậm đà kinh điển</p>
-                        <div class="product-price">
-                            <span class="price-current">32.000đ</span>
-                            <span class="price-original">37.500đ</span>
-                        </div>
-                        <div class="button-group">
-                            <button class="btn btn-primary">
-                                <i class="fas fa-shopping-cart"></i> Mua
-                            </button>
-                            <button class="btn btn-heart" onclick="toggleHeart(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PRODUCT 4 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <span>🧀</span>
-                        <span class="product-badge">BEST</span>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title">Phô Mai Que Bơ Tỏi</h3>
-                        <p class="product-description">Kết hợp bơ lạnh và tỏi thơm, độc đáo và ngon miệng</p>
-                        <div class="product-price">
-                            <span class="price-current">38.000đ</span>
-                            <span class="price-original">45.000đ</span>
-                        </div>
-                        <div class="button-group">
-                            <button class="btn btn-primary">
-                                <i class="fas fa-shopping-cart"></i> Mua
-                            </button>
-                            <button class="btn btn-heart" onclick="toggleHeart(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- PRICING TABLE -->
-        <div class="pricing-table-section">
-            <h2>💰 Bảng Giá Chi Tiết</h2>
-            <div class="pricing-table">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Loại Phô Mai</th>
-                            <th>Giá 1 Que</th>
-                            <th>Giá 10 Que</th>
-                            <th>Giá 30 Que</th>
-                            <th>Giá 100 Que</th>
-                            <th>Hành Động</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>🧀 Cheddar</strong></td>
-                            <td class="price-cell">8.000đ</td>
-                            <td class="price-cell">72.000đ</td>
-                            <td class="price-cell">210.000đ</td>
-                            <td class="price-cell">650.000đ</td>
-                            <td class="action-cell">
-                                <button class="action-btn">Mua</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><strong>🧀 Mozzarella</strong></td>
-                            <td class="price-cell">10.000đ</td>
-                            <td class="price-cell">90.000đ</td>
-                            <td class="price-cell">260.000đ</td>
-                            <td class="price-cell">800.000đ</td>
-                            <td class="action-cell">
-                                <button class="action-btn">Mua</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><strong>🧀 Parmesan</strong></td>
-                            <td class="price-cell">9.000đ</td>
-                            <td class="price-cell">81.000đ</td>
-                            <td class="price-cell">240.000đ</td>
-                            <td class="price-cell">740.000đ</td>
-                            <td class="action-cell">
-                                <button class="action-btn">Mua</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><strong>🧀 Bơ Tỏi</strong></td>
-                            <td class="price-cell">11.000đ</td>
-                            <td class="price-cell">99.000đ</td>
-                            <td class="price-cell">290.000đ</td>
-                            <td class="price-cell">900.000đ</td>
-                            <td class="action-cell">
-                                <button class="action-btn">Mua</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><strong>🧀 Gouda</strong></td>
-                            <td class="price-cell">8.500đ</td>
-                            <td class="price-cell">76.500đ</td>
-                            <td class="price-cell">225.000đ</td>
-                            <td class="price-cell">700.000đ</td>
-                            <td class="action-cell">
-                                <button class="action-btn">Mua</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><strong>🧀 Brie Dâu</strong></td>
-                            <td class="price-cell">12.000đ</td>
-                            <td class="price-cell">108.000đ</td>
-                            <td class="price-cell">320.000đ</td>
-                            <td class="price-cell">1.000.000đ</td>
-                            <td class="action-cell">
-                                <button class="action-btn">Mua</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- CONTACT SECTION -->
-        <div class="contact-section">
-            <h3>📞 Liên Hệ Chúng Tôi</h3>
-            <p>Có câu hỏi? Chúng tôi luôn sẵn sàng giúp bạn!</p>
-            <div class="contact-buttons">
-                <a href="https://zalo.me" class="contact-btn zalo-btn" title="Zalo">
-                    <i class="fab fa-comment"></i>
-                </a>
-                <a href="https://m.me" class="contact-btn messenger-btn" title="Messenger">
-                    <i class="fab fa-facebook-messenger"></i>
-                </a>
-                <a href="tel:0123456789" class="contact-btn phone-btn" title="Gọi">
-                    <i class="fas fa-phone"></i>
-                </a>
-                <a href="https://instagram.com" class="contact-btn instagram-btn" title="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-            </div>
-        </div>
-
-        <!-- FOOTER -->
-        <div class="footer">
-            <p>💖 Cảm ơn bạn đã ghé thăm cửa hàng của chúng tôi! 💖</p>
-            <p>© 2024 Phô Mai Que - Ngon Từ Trái Tim</p>
-        </div>
+        <audio id="bgMusic" loop>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        </audio>
     </div>
 
     <script>
-        // Filter tags
-        document.querySelectorAll('.filter-tag').forEach(tag => {
-            tag.addEventListener('click', function() {
-                document.querySelectorAll('.filter-tag').forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
-
-        // Heart button animation
-        function toggleHeart(button) {
-            const icon = button.querySelector('i');
-            button.classList.toggle('liked');
+        // Hiệu ứng tim rơi
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.style.position = 'fixed';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = '-20px';
+            heart.style.fontSize = (Math.random() * 10 + 10) + 'px';
+            heart.style.opacity = Math.random();
+            heart.style.transition = 'transform 5s linear, opacity 5s';
+            heart.style.pointerEvents = 'none';
+            heart.style.color = '#ff80ab';
             
-            if (button.classList.contains('liked')) {
-                icon.classList.remove('far');
-                icon.classList.add('fas');
-            } else {
-                icon.classList.remove('fas');
-                icon.classList.add('far');
-            }
-        }
+            document.getElementById('hearts-container').appendChild(heart);
 
-        // Add to cart button
-        document.querySelectorAll('.btn-primary, .action-btn').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                if (!e.target.closest('.filter-tag')) {
-                    showNotification('✨ Đã thêm vào giỏ hàng! ✨');
-                }
-            });
-        });
-
-        // Notification
-        function showNotification(message) {
-            const notification = document.createElement('div');
-            notification.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
-                color: white;
-                padding: 15px 25px;
-                border-radius: 15px;
-                font-weight: 700;
-                z-index: 1000;
-                animation: slideIn 0.4s ease-out;
-                box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
-            `;
-            notification.textContent = message;
-            document.body.appendChild(notification);
-            
             setTimeout(() => {
-                notification.style.animation = 'slideOut 0.4s ease-out';
-                setTimeout(() => notification.remove(), 400);
-            }, 2000);
+                heart.style.transform = `translateY(100vh) rotate(${Math.random() * 360}deg)`;
+                heart.style.opacity = '0';
+            }, 100);
+
+            setTimeout(() => heart.remove(), 6000);
         }
 
-        // Add animation styles
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slideIn {
-                from {
-                    opacity: 0;
-                    transform: translateX(100px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateX(0);
-                }
-            }
-            @keyframes slideOut {
-                from {
-                    opacity: 1;
-                    transform: translateX(0);
-                }
-                to {
-                    opacity: 0;
-                    transform: translateX(100px);
-                }
-            }
-        `;
-        document.head.appendChild(style);
- <script>
-    // code cũ của bạn (giữ nguyên)
-        function searchCards() {
-    let keyword = document.getElementById("searchBox").value.toLowerCase();
-    let cards = document.querySelectorAll(".pricing-card");
+        setInterval(createHeart, 300);
 
-    cards.forEach(card => {
-        let text = card.innerText.toLowerCase();
+        // Nút nhạc
+        const music = document.getElementById('bgMusic');
+        const disk = document.getElementById('disk');
+        let isPlaying = false;
 
-        if (text.includes(keyword)) {
-            card.style.display = "";
-        } else {
-            card.style.display = "none";
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+                disk.classList.remove('playing');
+            } else {
+                music.play();
+                disk.classList.add('playing');
+            }
+            isPlaying = !isPlaying;
         }
-    });
-}
-</script>
+
+        // Logic nút "Không" chạy trốn (nếu bạn muốn xịn hơn)
+        function moveNoButton() {
+            const btn = document.getElementById('noBtn');
+            const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+            btn.style.position = 'fixed';
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+
+        // Hành động khi nhấn "Đồng ý"
+        function celebrate() {
+            alert("Tớ biết là cậu sẽ đồng ý mà! Love youuuu! ❤️");
+            // Bạn có thể thay bằng hiệu ứng pháo hoa hoặc chuyển trang khác
+        }
+    </script>
 </body>
 </html>
