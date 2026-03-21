@@ -1,12 +1,10 @@
-# Tạo file HTML nâng cấp
-upgraded_html = """<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Phô Mai Que Xinh - Cửa Hàng Chúng Tôi</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -15,26 +13,10 @@ upgraded_html = """<!DOCTYPE html>
         }
 
         body {
-            font-family: 'Quicksand', 'Poppins', 'Arial', sans-serif;
-            background: linear-gradient(135deg, #fff9fb 0%, #fff5f9 50%, #ffe8f0 100%);
+            font-family: 'Poppins', 'Arial', sans-serif;
+            background: linear-gradient(135deg, #fff5f9 0%, #fff0f7 50%, #ffe6f0 100%);
             min-height: 100vh;
             padding: 20px;
-            position: relative;
-        }
-
-        /* ===== ANIMATED BACKGROUND PARTICLES ===== */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(255, 182, 193, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255, 105, 180, 0.08) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: -1;
         }
 
         /* ===== HEADER ===== */
@@ -42,7 +24,6 @@ upgraded_html = """<!DOCTYPE html>
             text-align: center;
             margin-bottom: 50px;
             animation: slideDown 0.8s ease-out;
-            position: relative;
         }
 
         @keyframes slideDown {
@@ -66,59 +47,53 @@ upgraded_html = """<!DOCTYPE html>
 
         .logo-icon {
             font-size: 50px;
-            animation: bounce 2.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
-            filter: drop-shadow(0 5px 15px rgba(255, 105, 180, 0.3));
+            animation: bounce 2s infinite;
         }
 
         @keyframes bounce {
             0%, 100% {
-                transform: translateY(0) scale(1);
+                transform: translateY(0);
             }
             50% {
-                transform: translateY(-20px) scale(1.1);
+                transform: translateY(-15px);
             }
         }
 
         .header h1 {
-            font-size: 52px;
+            font-size: 48px;
             background: linear-gradient(135deg, #ff69b4 0%, #ff1493 50%, #ffa6d6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             font-weight: 800;
             letter-spacing: 2px;
-            font-family: 'Playfair Display', serif;
         }
 
         .header p {
             color: #ff85c0;
             font-size: 18px;
             margin-top: 10px;
-            font-weight: 600;
+            font-weight: 500;
             letter-spacing: 0.5px;
-            text-shadow: 0 2px 4px rgba(255, 105, 180, 0.1);
         }
 
         .tagline {
             color: #ff69b4;
-            font-size: 15px;
+            font-size: 14px;
             margin-top: 8px;
             font-style: italic;
-            font-weight: 500;
         }
 
         /* ===== HERO SECTION ===== */
         .hero {
-            background: linear-gradient(135deg, rgba(255, 182, 193, 0.5) 0%, rgba(255, 192, 203, 0.5) 100%);
-            border-radius: 35px;
+            background: linear-gradient(135deg, rgba(255, 182, 193, 0.4) 0%, rgba(255, 192, 203, 0.4) 100%);
+            border-radius: 30px;
             padding: 50px 30px;
             text-align: center;
             margin-bottom: 40px;
             border: 3px solid #ffe6f0;
             position: relative;
             overflow: hidden;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 15px 40px rgba(255, 105, 180, 0.15);
         }
 
         .hero::before {
@@ -151,19 +126,17 @@ upgraded_html = """<!DOCTYPE html>
         }
 
         .hero h2 {
-            font-size: 36px;
+            font-size: 32px;
             color: #ff1493;
             margin-bottom: 15px;
-            font-weight: 800;
-            font-family: 'Playfair Display', serif;
+            font-weight: 700;
         }
 
         .hero p {
             color: #ff69b4;
-            font-size: 17px;
+            font-size: 16px;
             margin-bottom: 25px;
             line-height: 1.8;
-            font-weight: 600;
         }
 
         /* ===== CONTAINER ===== */
@@ -176,43 +149,22 @@ upgraded_html = """<!DOCTYPE html>
         .filter-section {
             display: flex;
             justify-content: center;
-            gap: 12px;
+            gap: 10px;
             flex-wrap: wrap;
             margin-bottom: 40px;
             animation: fadeInUp 0.6s ease-out;
         }
 
         .filter-tag {
-            padding: 12px 25px;
-            border: 2.5px solid #ffb6d9;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 30px;
+            padding: 10px 20px;
+            border: 2px solid #ffb6d9;
+            background: white;
+            border-radius: 25px;
             cursor: pointer;
             font-size: 14px;
             color: #333;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            font-weight: 700;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.1);
-        }
-
-        .filter-tag::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: radial-gradient(circle, rgba(255, 105, 180, 0.3) 0%, transparent 70%);
-            transform: translate(-50%, -50%);
-            transition: all 0.6s;
-        }
-
-        .filter-tag:hover::before,
-        .filter-tag.active::before {
-            width: 300px;
-            height: 300px;
+            transition: all 0.3s;
+            font-weight: 600;
         }
 
         .filter-tag:hover,
@@ -220,80 +172,41 @@ upgraded_html = """<!DOCTYPE html>
             background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
             color: white;
             border-color: #ff1493;
-            transform: scale(1.08) translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 105, 180, 0.35);
-        }
-
-        .filter-tag:active {
-            transform: scale(0.95);
+            transform: scale(1.05);
         }
 
         /* ===== PRICING TABLE SECTION ===== */
         .pricing-section {
-            background: linear-gradient(135deg, rgba(255, 182, 193, 0.35) 0%, rgba(255, 192, 203, 0.35) 100%);
-            border-radius: 35px;
-            padding: 45px;
+            background: linear-gradient(135deg, rgba(255, 182, 193, 0.3) 0%, rgba(255, 192, 203, 0.3) 100%);
+            border-radius: 30px;
+            padding: 40px;
             margin-bottom: 50px;
-            border: 2.5px solid #ffe6f0;
-            backdrop-filter: blur(5px);
-            box-shadow: 0 10px 35px rgba(255, 105, 180, 0.1);
+            border: 2px solid #ffe6f0;
         }
 
         .pricing-section h2 {
-            font-size: 34px;
+            font-size: 32px;
             color: #ff1493;
             text-align: center;
             margin-bottom: 30px;
             font-weight: 800;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .search-box-container {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        .search-box-container input {
-            padding: 14px 25px;
-            width: 320px;
-            border-radius: 25px;
-            border: 2.5px solid #ffb6d9;
-            background: rgba(255, 255, 255, 0.95);
-            font-size: 15px;
-            font-weight: 600;
-            color: #333;
-            transition: all 0.4s;
-            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.1);
-        }
-
-        .search-box-container input:focus {
-            outline: none;
-            border-color: #ff1493;
-            box-shadow: 0 8px 25px rgba(255, 105, 180, 0.25);
-            background: white;
-            transform: translateY(-2px);
-        }
-
-        .search-box-container input::placeholder {
-            color: #ffb6d9;
         }
 
         .pricing-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 28px;
+            gap: 25px;
             margin-bottom: 30px;
         }
 
         .pricing-card {
-            background: rgba(255, 255, 255, 0.98);
-            border-radius: 25px;
-            padding: 35px;
-            box-shadow: 0 12px 40px rgba(255, 105, 180, 0.12);
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 35px rgba(255, 105, 180, 0.15);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             overflow: hidden;
-            border: 2px solid #fff0f7;
         }
 
         .pricing-card::before {
@@ -302,76 +215,64 @@ upgraded_html = """<!DOCTYPE html>
             top: 0;
             left: 0;
             right: 0;
-            height: 6px;
+            height: 5px;
             background: linear-gradient(90deg, #ff69b4 0%, #ff1493 50%, #ffa6d6 100%);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .pricing-card:hover::before {
-            transform: scaleX(1);
         }
 
         .pricing-card:hover {
-            transform: translateY(-15px) scale(1.03);
-            box-shadow: 0 25px 60px rgba(255, 105, 180, 0.25);
-            border-color: #ffe6f0;
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(255, 105, 180, 0.25);
         }
 
         .pricing-card-title {
-            font-size: 19px;
-            font-weight: 800;
+            font-size: 18px;
+            font-weight: 700;
             color: #ff1493;
             margin-bottom: 15px;
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-family: 'Playfair Display', serif;
+            gap: 10px;
         }
 
         .pricing-card-title i {
-            font-size: 28px;
-            animation: pulse 2s infinite;
+            font-size: 24px;
         }
 
         .pricing-badge {
             display: inline-block;
             background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
             color: white;
-            padding: 6px 14px;
-            border-radius: 22px;
+            padding: 5px 12px;
+            border-radius: 20px;
             font-size: 11px;
-            font-weight: 800;
-            margin-bottom: 12px;
-            animation: badgeBounce 2s infinite;
-            letter-spacing: 0.5px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            animation: pulse 2s infinite;
         }
 
-        @keyframes badgeBounce {
+        @keyframes pulse {
             0%, 100% {
-                transform: translateY(0);
+                transform: scale(1);
             }
             50% {
-                transform: translateY(-4px);
+                transform: scale(1.05);
             }
         }
 
         .pricing-description {
-            color: #999;
-            font-size: 14px;
+            color: #888;
+            font-size: 13px;
             margin-bottom: 20px;
-            line-height: 1.7;
-            font-weight: 500;
+            line-height: 1.6;
         }
 
         .pricing-list {
             display: flex;
             flex-direction: column;
-            gap: 16px;
-            margin-bottom: 25px;
-            padding-bottom: 22px;
-            border-bottom: 2.5px solid #f8f8f8;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f5f5f5;
         }
 
         .pricing-item {
@@ -380,22 +281,24 @@ upgraded_html = """<!DOCTYPE html>
             align-items: center;
         }
 
+        .pricing-item-name {
+            flex: 1;
+        }
+
         .item-label {
-            font-weight: 700;
+            font-weight: 600;
             color: #333;
-            font-size: 15px;
+            font-size: 14px;
         }
 
         .item-duration {
             color: #ccc;
             font-size: 12px;
-            margin-top: 3px;
-            font-weight: 500;
         }
 
         .pricing-item-price {
-            font-size: 20px;
-            font-weight: 900;
+            font-size: 18px;
+            font-weight: 800;
             background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -408,30 +311,28 @@ upgraded_html = """<!DOCTYPE html>
         }
 
         .section-title {
-            font-size: 36px;
+            font-size: 32px;
             color: #ff1493;
             text-align: center;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
             font-weight: 800;
-            font-family: 'Playfair Display', serif;
         }
 
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 28px;
+            gap: 25px;
         }
 
         .product-card {
-            background: rgba(255, 255, 255, 0.98);
-            border-radius: 28px;
+            background: white;
+            border-radius: 25px;
             overflow: hidden;
-            box-shadow: 0 12px 40px rgba(255, 105, 180, 0.12);
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 35px rgba(255, 105, 180, 0.15);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             animation: fadeInUp 0.6s ease-out forwards;
             opacity: 0;
-            border: 2px solid #fff0f7;
         }
 
         .product-card:nth-child(1) { animation-delay: 0.1s; }
@@ -451,19 +352,18 @@ upgraded_html = """<!DOCTYPE html>
         }
 
         .product-card:hover {
-            transform: translateY(-18px) scale(1.05);
-            box-shadow: 0 28px 65px rgba(255, 105, 180, 0.28);
-            border-color: #ffe6f0;
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(255, 105, 180, 0.3);
         }
 
         .product-image {
             width: 100%;
-            height: 260px;
+            height: 250px;
             background: linear-gradient(135deg, #ffe6f0 0%, #fff0f7 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 85px;
+            font-size: 80px;
             position: relative;
             overflow: hidden;
         }
@@ -475,8 +375,8 @@ upgraded_html = """<!DOCTYPE html>
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.35) 50%, transparent 70%);
-            animation: shine 3.5s infinite;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
+            animation: shine 3s infinite;
         }
 
         @keyframes shine {
@@ -494,45 +394,41 @@ upgraded_html = """<!DOCTYPE html>
             right: 15px;
             background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
             color: white;
-            padding: 9px 16px;
-            border-radius: 22px;
+            padding: 8px 15px;
+            border-radius: 20px;
             font-size: 12px;
-            font-weight: 800;
-            animation: badgeBounce 2s infinite;
-            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
-            letter-spacing: 0.3px;
+            font-weight: 700;
+            animation: pulse 2s infinite;
         }
 
         .product-info {
-            padding: 28px;
+            padding: 25px;
         }
 
         .product-title {
-            font-size: 19px;
-            font-weight: 800;
+            font-size: 18px;
+            font-weight: 700;
             color: #ff1493;
             margin-bottom: 10px;
-            font-family: 'Playfair Display', serif;
         }
 
         .product-description {
-            color: #999;
-            font-size: 14px;
-            margin-bottom: 18px;
-            line-height: 1.7;
-            font-weight: 500;
+            color: #888;
+            font-size: 13px;
+            margin-bottom: 15px;
+            line-height: 1.6;
         }
 
         .product-price {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 22px;
+            gap: 10px;
+            margin-bottom: 20px;
         }
 
         .price-current {
-            font-size: 24px;
-            font-weight: 900;
+            font-size: 22px;
+            font-weight: 800;
             color: #ff1493;
         }
 
@@ -540,22 +436,21 @@ upgraded_html = """<!DOCTYPE html>
             font-size: 13px;
             color: #ccc;
             text-decoration: line-through;
-            font-weight: 600;
         }
 
         /* ===== BUTTONS ===== */
         .button-group {
             display: flex;
-            gap: 12px;
+            gap: 10px;
         }
 
         .btn {
             flex: 1;
-            padding: 14px 22px;
+            padding: 12px 20px;
             border: none;
-            border-radius: 18px;
-            font-size: 15px;
-            font-weight: 800;
+            border-radius: 15px;
+            font-size: 14px;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
@@ -570,107 +465,68 @@ upgraded_html = """<!DOCTYPE html>
             left: 50%;
             width: 0;
             height: 0;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+            background: rgba(255, 255, 255, 0.3);
             border-radius: 50%;
             transform: translate(-50%, -50%);
-            transition: width 0.7s, height 0.7s;
+            transition: width 0.6s, height 0.6s;
         }
 
         .btn:hover::before {
-            width: 350px;
-            height: 350px;
+            width: 300px;
+            height: 300px;
         }
 
         .btn-primary {
             background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
             color: white;
-            box-shadow: 0 6px 25px rgba(255, 105, 180, 0.4);
+            box-shadow: 0 5px 20px rgba(255, 105, 180, 0.4);
         }
 
         .btn-primary:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 12px 35px rgba(255, 105, 180, 0.6);
-        }
-
-        .btn-primary:active {
-            transform: translateY(-2px) scale(0.98);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.6);
         }
 
         .btn-secondary {
             background: white;
             color: #ff69b4;
-            border: 2.5px solid #ff69b4;
-            font-weight: 800;
+            border: 2px solid #ff69b4;
         }
 
         .btn-secondary:hover {
             background: #ff69b4;
             color: white;
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 8px 25px rgba(255, 105, 180, 0.35);
+            transform: translateY(-3px);
         }
 
         .btn-heart {
-            width: 55px;
-            height: 55px;
+            width: 50px;
+            height: 50px;
             padding: 0;
             background: white;
             color: #ff69b4;
-            border: 2.5px solid #ff69b4;
-            font-size: 20px;
-            transition: all 0.4s;
+            border: 2px solid #ff69b4;
+            font-size: 18px;
         }
 
         .btn-heart:hover {
             background: #ff69b4;
             color: white;
-            transform: scale(1.18);
-            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.35);
+            transform: scale(1.15);
         }
 
         .btn-heart.liked {
             background: #ff69b4;
             color: white;
-            animation: heartBeat 0.7s;
+            animation: heartBeat 0.6s;
         }
 
         @keyframes heartBeat {
             0%, 100% {
                 transform: scale(1);
             }
-            15% {
-                transform: scale(1.35);
-            }
-            30% {
-                transform: scale(1.15);
-            }
-        }
-
-        /* ===== MUSIC BUTTON ===== */
-        .btn-music {
-            width: 55px;
-            height: 55px;
-            padding: 0;
-            background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
-            color: white;
-            border: 2.5px solid #8b5cf6;
-            font-size: 20px;
-            transition: all 0.4s;
-            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.3);
-        }
-
-        .btn-music:hover {
-            transform: scale(1.15) rotate(10deg);
-            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.5);
-        }
-
-        .btn-music.playing {
-            animation: musicPlay 0.6s infinite;
-        }
-
-        @keyframes musicPlay {
-            0%, 100% {
-                transform: scale(1);
+            25% {
+                transform: scale(1.3);
             }
             50% {
                 transform: scale(1.1);
@@ -679,22 +535,20 @@ upgraded_html = """<!DOCTYPE html>
 
         /* ===== PRICING TABLE ===== */
         .pricing-table-section {
-            background: rgba(255, 255, 255, 0.98);
-            border-radius: 35px;
-            padding: 45px;
+            background: white;
+            border-radius: 30px;
+            padding: 40px;
             margin-bottom: 50px;
-            border: 2.5px solid #ffe6f0;
-            box-shadow: 0 12px 40px rgba(255, 105, 180, 0.12);
-            backdrop-filter: blur(5px);
+            border: 2px solid #ffe6f0;
+            box-shadow: 0 10px 35px rgba(255, 105, 180, 0.15);
         }
 
         .pricing-table-section h2 {
-            font-size: 34px;
+            font-size: 28px;
             color: #ff1493;
             text-align: center;
             margin-bottom: 30px;
             font-weight: 800;
-            font-family: 'Playfair Display', serif;
         }
 
         .pricing-table {
@@ -709,18 +563,16 @@ upgraded_html = """<!DOCTYPE html>
         th {
             background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
             color: white;
-            padding: 18px;
+            padding: 15px;
             text-align: left;
-            font-weight: 800;
-            font-size: 15px;
-            letter-spacing: 0.3px;
+            font-weight: 700;
+            font-size: 14px;
         }
 
         td {
-            padding: 18px;
-            border-bottom: 2px solid #f8f8f8;
+            padding: 15px;
+            border-bottom: 1px solid #f5f5f5;
             color: #333;
-            font-weight: 500;
         }
 
         tr:hover {
@@ -732,9 +584,9 @@ upgraded_html = """<!DOCTYPE html>
         }
 
         .price-cell {
-            font-weight: 800;
+            font-weight: 700;
             color: #ff1493;
-            font-size: 17px;
+            font-size: 16px;
         }
 
         .action-cell {
@@ -745,95 +597,65 @@ upgraded_html = """<!DOCTYPE html>
             background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
             color: white;
             border: none;
-            padding: 10px 18px;
-            border-radius: 12px;
+            padding: 8px 15px;
+            border-radius: 10px;
             cursor: pointer;
-            font-weight: 800;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            font-size: 13px;
-            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2);
-            letter-spacing: 0.3px;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 12px;
         }
 
         .action-btn:hover {
-            transform: scale(1.12) translateY(-2px);
-            box-shadow: 0 10px 25px rgba(255, 105, 180, 0.4);
-        }
-
-        .action-btn:active {
-            transform: scale(0.95);
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
         }
 
         /* ===== CONTACT SECTION ===== */
         .contact-section {
             background: linear-gradient(135deg, rgba(255, 182, 193, 0.5) 0%, rgba(255, 192, 203, 0.5) 100%);
-            border-radius: 35px;
-            padding: 45px;
+            border-radius: 30px;
+            padding: 40px;
             text-align: center;
             margin-top: 50px;
-            border: 2.5px solid #ffe6f0;
-            backdrop-filter: blur(5px);
-            box-shadow: 0 10px 35px rgba(255, 105, 180, 0.1);
+            border: 2px solid #ffe6f0;
         }
 
         .contact-section h3 {
-            font-size: 32px;
+            font-size: 28px;
             color: #ff1493;
             margin-bottom: 15px;
             font-weight: 800;
-            font-family: 'Playfair Display', serif;
         }
 
         .contact-section p {
             color: #ff69b4;
-            font-size: 17px;
-            margin-bottom: 30px;
-            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 25px;
         }
 
         .contact-buttons {
             display: flex;
             justify-content: center;
-            gap: 18px;
+            gap: 15px;
             flex-wrap: wrap;
         }
 
         .contact-btn {
-            width: 75px;
-            height: 75px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
+            font-size: 28px;
             color: white;
             text-decoration: none;
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: all 0.6s;
-        }
-
-        .contact-btn:hover::before {
-            width: 300px;
-            height: 300px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
 
         .contact-btn:hover {
-            transform: translateY(-12px) scale(1.15);
+            transform: translateY(-10px) scale(1.15);
         }
 
         .zalo-btn {
@@ -855,22 +677,17 @@ upgraded_html = """<!DOCTYPE html>
         /* ===== FOOTER ===== */
         .footer {
             text-align: center;
-            padding: 35px;
+            padding: 30px;
             color: #ff69b4;
             margin-top: 50px;
-            font-size: 15px;
-            border-top: 2.5px solid #ffe6f0;
-            font-weight: 600;
+            font-size: 14px;
+            border-top: 2px solid #ffe6f0;
         }
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .header h1 {
-                font-size: 40px;
-            }
-
-            .section-title {
-                font-size: 28px;
+                font-size: 36px;
             }
 
             .pricing-cards {
@@ -879,16 +696,11 @@ upgraded_html = """<!DOCTYPE html>
 
             .products-grid {
                 grid-template-columns: 1fr;
-                gap: 18px;
+                gap: 15px;
             }
 
             .hero {
-                padding: 35px 20px;
-                border-radius: 25px;
-            }
-
-            .hero h2 {
-                font-size: 28px;
+                padding: 30px 20px;
             }
 
             .button-group {
@@ -897,22 +709,16 @@ upgraded_html = """<!DOCTYPE html>
 
             .btn {
                 min-width: unset;
-                border-radius: 16px;
             }
 
             .contact-buttons {
-                gap: 12px;
+                gap: 10px;
             }
 
             .contact-btn {
-                width: 65px;
-                height: 65px;
-                font-size: 26px;
-            }
-
-            .search-box-container input {
-                width: 100%;
-                max-width: 300px;
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
             }
 
             table {
@@ -920,30 +726,7 @@ upgraded_html = """<!DOCTYPE html>
             }
 
             th, td {
-                padding: 12px;
-            }
-
-            .pricing-section,
-            .pricing-table-section,
-            .contact-section {
-                padding: 30px 20px;
-                border-radius: 25px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header h1 {
-                font-size: 32px;
-                letter-spacing: 1px;
-            }
-
-            .logo-icon {
-                font-size: 40px;
-            }
-
-            .btn {
-                padding: 12px 16px;
-                font-size: 13px;
+                padding: 10px;
             }
         }
     </style>
@@ -979,12 +762,9 @@ upgraded_html = """<!DOCTYPE html>
             <button class="filter-tag">Gouda</button>
         </div>
 
-        <!-- PRICING CARDS SECTION 1 -->
+        <!-- PRICING CARDS SECTION -->
         <div class="pricing-section">
             <h2>📦 Các Gói Hạng Mục</h2>
-            <div class="search-box-container">
-                <input type="text" id="searchBox" placeholder="🔍 Tìm gói..." onkeyup="searchCards()">
-            </div>
             <div class="pricing-cards">
                 <!-- Card 1 -->
                 <div class="pricing-card">
@@ -1025,7 +805,7 @@ upgraded_html = """<!DOCTYPE html>
                 <div class="pricing-card">
                     <span class="pricing-badge">HOT</span>
                     <h3 class="pricing-card-title">
-                        <i class="fas fa-gift"></i> XINGTU SVIP
+                        <i class="fas fa-gift"></i> XINGTU SVIP - Tài Khoản Cấp
                     </h3>
                     <p class="pricing-description">Đăng nhập tối đa 1 thiết bị (log quá kick không bảo hành), sử dụng riêng tư bảo mật</p>
                     <div class="pricing-list">
@@ -1076,7 +856,7 @@ upgraded_html = """<!DOCTYPE html>
                                 <div class="item-label">3 Tháng</div>
                                 <div class="item-duration">Tiết kiệm 55%</div>
                             </div>
-                            <div class="pricing-item-price">550.000đ</div>
+                            <div class="pricing-item-price">550.000</div>
                         </div>
                         <div class="pricing-item">
                             <div class="pricing-item-name">
@@ -1093,7 +873,7 @@ upgraded_html = """<!DOCTYPE html>
             </div>
         </div>
 
-        <!-- PRICING CARDS SECTION 2 -->
+          <!-- PRICING CARDS SECTION -->
         <div class="pricing-section">
             <h2>📦 Các Gói Hạng Mục</h2>
             <div class="pricing-cards">
@@ -1228,9 +1008,6 @@ upgraded_html = """<!DOCTYPE html>
                             <button class="btn btn-heart" onclick="toggleHeart(this)">
                                 <i class="far fa-heart"></i>
                             </button>
-                            <button class="btn btn-music" onclick="toggleMusic(this)" title="Nghe mô tả">
-                                <i class="fas fa-volume-up"></i>
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -1254,9 +1031,6 @@ upgraded_html = """<!DOCTYPE html>
                             </button>
                             <button class="btn btn-heart" onclick="toggleHeart(this)">
                                 <i class="far fa-heart"></i>
-                            </button>
-                            <button class="btn btn-music" onclick="toggleMusic(this)" title="Nghe mô tả">
-                                <i class="fas fa-volume-up"></i>
                             </button>
                         </div>
                     </div>
@@ -1282,9 +1056,6 @@ upgraded_html = """<!DOCTYPE html>
                             <button class="btn btn-heart" onclick="toggleHeart(this)">
                                 <i class="far fa-heart"></i>
                             </button>
-                            <button class="btn btn-music" onclick="toggleMusic(this)" title="Nghe mô tả">
-                                <i class="fas fa-volume-up"></i>
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -1308,9 +1079,6 @@ upgraded_html = """<!DOCTYPE html>
                             </button>
                             <button class="btn btn-heart" onclick="toggleHeart(this)">
                                 <i class="far fa-heart"></i>
-                            </button>
-                            <button class="btn btn-music" onclick="toggleMusic(this)" title="Nghe mô tả">
-                                <i class="fas fa-volume-up"></i>
                             </button>
                         </div>
                     </div>
@@ -1449,18 +1217,6 @@ upgraded_html = """<!DOCTYPE html>
             }
         }
 
-        // Music button animation
-        function toggleMusic(button) {
-            button.classList.toggle('playing');
-            
-            if (button.classList.contains('playing')) {
-                showNotification('🎵 Đang phát âm thanh... 🎵');
-                setTimeout(() => {
-                    button.classList.remove('playing');
-                }, 2000);
-            }
-        }
-
         // Add to cart button
         document.querySelectorAll('.btn-primary, .action-btn').forEach(btn => {
             btn.addEventListener('click', function(e) {
@@ -1473,128 +1229,53 @@ upgraded_html = """<!DOCTYPE html>
         // Notification
         function showNotification(message) {
             const notification = document.createElement('div');
-            notification.style.cssText = \`
+            notification.style.cssText = `
                 position: fixed;
-                top: 25px;
-                right: 25px;
+                top: 20px;
+                right: 20px;
                 background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
                 color: white;
-                padding: 16px 28px;
-                border-radius: 18px;
-                font-weight: 800;
+                padding: 15px 25px;
+                border-radius: 15px;
+                font-weight: 700;
                 z-index: 1000;
-                animation: slideIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-                box-shadow: 0 10px 30px rgba(255, 105, 180, 0.4);
-                font-size: 14px;
-                letter-spacing: 0.3px;
-            \`;
+                animation: slideIn 0.4s ease-out;
+                box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
+            `;
             notification.textContent = message;
             document.body.appendChild(notification);
             
             setTimeout(() => {
-                notification.style.animation = 'slideOut 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-                setTimeout(() => notification.remove(), 500);
-            }, 2500);
+                notification.style.animation = 'slideOut 0.4s ease-out';
+                setTimeout(() => notification.remove(), 400);
+            }, 2000);
         }
 
         // Add animation styles
         const style = document.createElement('style');
-        style.textContent = \`
+        style.textContent = `
             @keyframes slideIn {
                 from {
                     opacity: 0;
-                    transform: translateX(120px) scale(0.8);
+                    transform: translateX(100px);
                 }
                 to {
                     opacity: 1;
-                    transform: translateX(0) scale(1);
+                    transform: translateX(0);
                 }
             }
             @keyframes slideOut {
                 from {
                     opacity: 1;
-                    transform: translateX(0) scale(1);
+                    transform: translateX(0);
                 }
                 to {
                     opacity: 0;
-                    transform: translateX(120px) scale(0.8);
+                    transform: translateX(100px);
                 }
             }
-        \`;
+        `;
         document.head.appendChild(style);
-
-        // Search function
-        function searchCards() {
-            let keyword = document.getElementById("searchBox").value.toLowerCase();
-            let cards = document.querySelectorAll(".pricing-card");
-
-            cards.forEach(card => {
-                let text = card.innerText.toLowerCase();
-
-                if (text.includes(keyword)) {
-                    card.style.display = "";
-                } else {
-                    card.style.display = "none";
-                }
-            });
-        }
     </script>
 </body>
 </html>
-"""
-
-# Lưu file
-with open('index_upgraded.html', 'w', encoding='utf-8') as f:
-    f.write(upgraded_html)
-
-print("✅ File đã được nâng cấp thành công!")
-print("\n📋 Những cải tiến được thêm vào:")
-print("=" * 60)
-print("\n🎨 GỌA DIỆN & UX NÂNG CẤP:")
-print("   • Font chữ mới: Playfair Display (thanh lịch) + Quicksand (mềm mại)")
-print("   • Nền gradient làm mặt với hiệu ứng backdrop-filter")
-print("   • Các shadow box nâng cao (0 15px 40px...)")
-print("   • Hiệu ứng hover với radial-gradient mềm mại")
-print("\n⚡ HIỆU ỨNG NÚT ẤN ĐẸP HƠN:")
-print("   • Ripple effect trên filter tags (radial-gradient circle)")
-print("   • Button scale 1.08 khi hover (thay vì 1.05)")
-print("   • Transform translateY để nút 'nổi' lên")
-print("   • Active state với scale 0.95 (feedback ấn xuống)")
-print("   • Cubic-bezier animation cho hiệu ứng 'bounce' tinh tế")
-print("\n💖 VIBE NỮ TÍNH & TINH TẾ:")
-print("   • Màu sắc nhẹ nhàng: #fff9fb, #ffe8f0")
-print("   • Font chữ Playfair Display cho titles (thanh lịch)")
-print("   • Rounded corners 25-35px (mềm mại)")
-print("   • Box shadow nhẹ với opacity 0.1-0.15 (tinh tế)")
-print("   • Search box có focus state đẹp với animation")
-print("\n🎵 NÚT NGHE NHẠC:")
-print("   • Nút music button màu gradient tím (a78bfa → 8b5cf6)")
-print("   • Animation musicPlay khi playing")
-print("   • Rotate 10° khi hover, scale 1.15")
-print("   • Notification khi click 'Đang phát âm thanh'")
-print("\n✨ THÊM HIỆU ỨNG:")
-print("   • Badge bounce: translateY(-4px) animation")
-print("   • Search box focus: translateY(-2px) + shadow")
-print("   • Contact buttons hover: translateY(-12px) scale(1.15)")
-print("   • Notification: slideIn/slideOut animation tinh tế")
-print("   • Animated background particles (subtle gradients)")
-print("   • Contact btn ripple effect")
-print("\n📱 RESPONSIVE:")
-print("   • Đã thêm @media 480px cho mobile")
-print("   • Tất cả elements được tối ưu cho mobile")
-print("\n✅ NỘI DUNG CỐT LÕI:")
-print("   • Giữ nguyên 100% nội dung, chỉ cập nhật giao diện & hiệu ứng")
-print("   • Tất cả functionality code giữ nguyên")
-print("=" * 60)
-Result
-{
-  "logs": {
-    "stdout": [
-      "✅ File đã được nâng cấp thành công!\n\n📋 Những cải tiến được thêm vào:\n============================================================\n\n🎨 GỌA DIỆN & UX NÂNG CẤP:\n   • Font chữ mới: Playfair Display (thanh lịch) + Quicksand (mềm mại)\n   • Nền gradient làm mặt với hiệu ứng backdrop-filter\n   • Các shadow box nâng cao (0 15px 40px...)\n   • Hiệu ứng hover với radial-gradient mềm mại\n\n⚡ HIỆU ỨNG NÚT ẤN ĐẸP HƠN:\n   • Ripple effect trên filter tags (radial-gradient circle)\n   • Button scale 1.08 khi hover (thay vì 1.05)\n   • Transform translateY để nút 'nổi' lên\n   • Active state với scale 0.95 (feedback ấn xuống)\n   • Cubic-bezier animation cho hiệu ứng 'bounce' tinh tế\n\n💖 VIBE NỮ TÍNH & TINH TẾ:\n   • Màu sắc nhẹ nhàng: #fff9fb, #ffe8f0\n   • Font chữ Playfair Display cho titles (thanh lịch)\n   • Rounded corners 25-35px (mềm mại)\n   • Box shadow nhẹ với opacity 0.1-0.15 (tinh tế)\n   • Search box có focus state đẹp với animation\n\n🎵 NÚT NGHE NHẠC:\n   • Nút music button màu gradient tím (a78bfa → 8b5cf6)\n   • Animation musicPlay khi playing\n   • Rotate 10° khi hover, scale 1.15\n   • Notification khi click 'Đang phát âm thanh'\n\n✨ THÊM HIỆU ỨNG:\n   • Badge bounce: translateY(-4px) animation\n   • Search box focus: translateY(-2px) + shadow\n   • Contact buttons hover: translateY(-12px) scale(1.15)\n   • Notification: slideIn/slideOut animation tinh tế\n   • Animated background particles (subtle gradients)\n   • Contact btn ripple effect\n\n📱 RESPONSIVE:\n   • Đã thêm @media 480px cho mobile\n   • Tất cả elements được tối ưu cho mobile\n\n✅ NỘI DUNG CỐT LÕI:\n   • Giữ nguyên 100% nội dung, chỉ cập nhật giao diện & hiệu ứng\n   • Tất cả functionality code giữ nguyên\n============================================================\n"
-    ],
-    "stderr": [
-      "<>:1482: SyntaxWarning: invalid escape sequence '\\`'\n<>:1482: SyntaxWarning: invalid escape sequence '\\`'\n/tmp/ipykernel_589/3815368664.py:1482: SyntaxWarning: invalid escape sequence '\\`'\n  notification.style.cssText = \\`\n"
-    ]
-  },
-  "results": []
-}
